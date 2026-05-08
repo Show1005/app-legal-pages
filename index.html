@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>App Legal Pages</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f1e8;
+        --panel: #fffdf8;
+        --text: #1f2933;
+        --muted: #52606d;
+        --accent: #1f7a5a;
+        --accent-soft: #d8eee6;
+        --border: #d9e2ec;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        background: linear-gradient(180deg, #f8f5ee 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .hero,
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: 0 14px 40px rgba(31, 41, 51, 0.08);
+      }
+
+      .hero {
+        padding: 28px 24px;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.3;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
+
+      h2 {
+        margin: 0 0 10px;
+        font-size: 1.4rem;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .card {
+        padding: 22px 20px;
+      }
+
+      ul {
+        margin: 16px 0 0;
+        padding-left: 20px;
+      }
+
+      li + li {
+        margin-top: 10px;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      footer {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">GitHub Pages</div>
+        <h1>App Legal Pages</h1>
+        <p>小規模 iOS アプリ向けの公開サポート / 法務ページ一覧です。</p>
+      </section>
+
+      <section class="card" aria-labelledby="shomikigen-check">
+        <h2 id="shomikigen-check">賞味期限チェック</h2>
+        <p>プライバシーポリシーとサポートページを公開しています。</p>
+        <ul>
+          <li><a href="shomikigen-check/privacy-policy.html">プライバシーポリシー</a></li>
+          <li><a href="shomikigen-check/support.html">サポート</a></li>
+        </ul>
+      </section>
+
+      <footer>このリポジトリは複数の小規模 iOS アプリの公開ページを順次追加していく前提です。</footer>
+    </main>
+  </body>
+</html>
