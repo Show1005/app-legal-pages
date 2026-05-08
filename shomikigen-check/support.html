@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>賞味期限チェック | サポート</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f2ea;
+        --panel: #fffdfa;
+        --text: #23303b;
+        --muted: #5d6975;
+        --accent: #176b87;
+        --border: #d7e0e8;
+        --warn-bg: #fff2da;
+        --warn-text: #8a4f10;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        background: linear-gradient(180deg, #faf8f1 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.8;
+      }
+
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .page,
+      .note {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: 0 14px 36px rgba(35, 48, 59, 0.08);
+      }
+
+      .page {
+        padding: 30px 24px;
+      }
+
+      .note {
+        margin-top: 18px;
+        padding: 16px 18px;
+        background: var(--warn-bg);
+        color: var(--warn-text);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #d9ebf2;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.35;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.9rem, 5vw, 2.8rem);
+      }
+
+      h2 {
+        margin: 30px 0 10px;
+        font-size: 1.25rem;
+      }
+
+      p,
+      li {
+        color: var(--text);
+      }
+
+      .lead,
+      .backlink {
+        color: var(--muted);
+      }
+
+      ul,
+      ol {
+        margin: 10px 0 0;
+        padding-left: 22px;
+      }
+
+      li + li,
+      p + p {
+        margin-top: 10px;
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="page">
+        <div class="eyebrow">Support</div>
+        <h1>賞味期限チェック サポート</h1>
+        <p class="lead">
+          「賞味期限チェック」は、食品名、任意の開封日、任意の賞味期限、メモ、ローカル通知を使って食品の記録と確認を行うための iOS アプリです。
+        </p>
+
+        <h2>アプリでできること</h2>
+        <ul>
+          <li>食品名の管理</li>
+          <li>開封日の記録</li>
+          <li>賞味期限の記録</li>
+          <li>メモの保存</li>
+          <li>ローカル通知による確認サポート</li>
+        </ul>
+
+        <h2>FAQ</h2>
+        <ol>
+          <li>
+            データはどこに保存されますか？
+            <p>利用者の端末内にのみ保存されます。</p>
+          </li>
+          <li>
+            開発者は登録した食品データを見ることができますか？
+            <p>いいえ。開発者が利用者の登録データを見ることはできません。</p>
+          </li>
+          <li>
+            通知が表示されないのはなぜですか？
+            <p>iOS の設定で本アプリの通知許可が必要な場合があります。設定アプリから通知設定をご確認ください。</p>
+          </li>
+          <li>
+            このアプリで食品が安全かどうか判断できますか？
+            <p>いいえ。本アプリは記録・確認を補助するためのツールであり、安全性の判断を行うものではありません。</p>
+          </li>
+        </ol>
+
+        <h2>お問い合わせ</h2>
+        <p>ご連絡先: <a href="mailto:support@example.com">support@example.com</a></p>
+        <p>TODO: App Store 提出前にこのメールアドレスを正式なサポート窓口へ差し替えてください。</p>
+
+        <p class="backlink"><a href="../index.html">一覧ページへ戻る</a></p>
+      </article>
+
+      <aside class="note">
+        <!-- TODO: Replace support@example.com with a real support address before App Store submission. -->
+        `support@example.com` は仮の値です。提出前に必ず実運用のサポート連絡先へ変更してください。
+      </aside>
+    </main>
+  </body>
+</html>
