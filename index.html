@@ -34,6 +34,29 @@
         padding: 32px 20px 56px;
       }
 
+      .tools-shortcut {
+        position: fixed;
+        top: 18px;
+        right: 18px;
+        z-index: 20;
+        width: 46px;
+        height: 46px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 1.25rem;
+        box-shadow: 0 10px 28px rgba(31, 41, 51, 0.12);
+      }
+
+      .tools-shortcut:hover {
+        background: var(--accent-soft);
+      }
+
       .hero,
       .card {
         background: var(--panel);
@@ -107,6 +130,8 @@
     </style>
   </head>
   <body>
+    <a class="tools-shortcut" href="tools/" aria-label="ツール一覧" title="ツール一覧">🛠</a>
+
     <main>
       <section class="hero">
         <div class="eyebrow">GitHub Pages</div>
