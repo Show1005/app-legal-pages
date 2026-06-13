@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>音階チェッカー | サポート</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #eef6ff;
+        --panel: #ffffff;
+        --text: #102033;
+        --muted: #526174;
+        --accent: #2563eb;
+        --border: #d9e2f3;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.8;
+      }
+
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .page {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: 0 14px 36px rgba(16, 32, 51, 0.08);
+        padding: 30px 24px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      h1, h2 { line-height: 1.35; }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.9rem, 5vw, 2.8rem);
+      }
+
+      h2 {
+        margin: 30px 0 10px;
+        font-size: 1.25rem;
+      }
+
+      p, li { color: var(--text); }
+
+      .lead, .backlink { color: var(--muted); }
+
+      ul, ol {
+        margin: 10px 0 0;
+        padding-left: 22px;
+      }
+
+      li + li, p + p { margin-top: 10px; }
+
+      a { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="page">
+        <div class="eyebrow">Support</div>
+        <h1>音階チェッカー サポート</h1>
+        <p class="lead">
+          「音階チェッカー（Pitch Note Checker）」は、周囲の音をマイクで解析し、音名をリアルタイムに確認するための iOS アプリです。
+        </p>
+
+        <h2>アプリでできること</h2>
+        <ul>
+          <li>マイク入力によるリアルタイム音名表示</li>
+          <li>ドレミ表記 / ABC表記の切り替え</li>
+          <li>検出した音名履歴の確認</li>
+          <li>音名履歴のコピー</li>
+        </ul>
+
+        <h2>基本的な使い方</h2>
+        <ol>
+          <li>アプリを起動します。</li>
+          <li>開始ボタンを押します。</li>
+          <li>マイクアクセスを許可します。</li>
+          <li>音を鳴らす、または声を出します。</li>
+          <li>表示された音名や履歴を確認します。</li>
+          <li>必要に応じて、ドレミ表記 / ABC表記を切り替えます。</li>
+          <li>停止ボタンで解析を停止します。</li>
+        </ol>
+
+        <h2>FAQ</h2>
+        <ol>
+          <li>
+            音声は保存されますか？
+            <p>いいえ。本アプリは録音データを保存しません。</p>
+          </li>
+          <li>
+            音声データはサーバーへ送信されますか？
+            <p>いいえ。音声データは開発者のサーバーや第三者のサーバーへ送信されません。</p>
+          </li>
+          <li>
+            表示される音名がずれることはありますか？
+            <p>あります。周囲の雑音、倍音、音量、マイクとの距離、端末の状態などにより、表示される音名が実際の音と異なる場合があります。</p>
+          </li>
+          <li>
+            チューナーや採譜アプリとして使えますか？
+            <p>本アプリは音名確認を補助するためのシンプルなアプリです。完全な採譜や専門的なチューニングを保証するものではありません。</p>
+          </li>
+        </ol>
+
+        <h2>お問い合わせ</h2>
+        <p>本アプリに関するお問い合わせは、以下のフォームからお願いいたします。</p>
+        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdN1mS5y-9_8NZxLXNguQIPyZ5Dk2-fAgHY6IveXnw5l_YAGg/viewform?usp=pp_url&entry.1400069445=%E9%9F%B3%E9%9A%8E%E3%83%81%E3%82%A7%E3%83%83%E3%82%AB%E3%83%BC">お問い合わせフォーム</a></p>
+
+        <p class="backlink"><a href="../index.html">一覧ページへ戻る</a></p>
+      </article>
+    </main>
+  </body>
+</html>
