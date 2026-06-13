@@ -16,6 +16,8 @@ Each app provides:
 - Privacy Policy
 - Support
 
+Some apps may also provide small web tools related to the app.
+
 ## Public URLs
 
 ### 賞味期限チェック
@@ -37,3 +39,4 @@ Each app provides:
 
 - Privacy Policy: `https://show1005.github.io/app-legal-pages/pitch-note-checker/privacy-policy.html`
 - Support: `https://show1005.github.io/app-legal-pages/pitch-note-checker/support.html`
+- Hz Piano: `https://show1005.github.io/app-legal-pages/pitch-note-checker/hz-piano.html`
