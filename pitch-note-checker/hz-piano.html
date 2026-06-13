@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>音階チェッカー | Hz指定ピアノ</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: #f5f4f0;
+    color: #2c2c2a;
+    margin: 0;
+    padding: 24px;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0ded6;
+    padding: 24px;
+  }
+  .backlink {
+    margin: 0 0 16px;
+    font-size: 13px;
+  }
+  .backlink a { color: #534ab7; text-decoration: underline; }
+  h1 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 0 20px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  label {
+    font-size: 14px;
+    color: #5f5e5a;
+    min-width: 70px;
+  }
+  input[type="number"] {
+    width: 100px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #d3d1c7;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    color: #2c2c2a;
+  }
+  input[type="range"] {
+    flex: 1;
+    min-width: 120px;
+    height: 4px;
+    accent-color: #534ab7;
+  }
+  select {
+    width: 140px;
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid #d3d1c7;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    color: #2c2c2a;
+  }
+  button {
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid #d3d1c7;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #2c2c2a;
+  }
+  button:hover { background: #f1efe8; }
+  button:active { transform: scale(0.98); }
+  .icon-btn {
+    width: 36px;
+    padding: 0;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+  #noteDisplay {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 24px 0;
+    color: #5f5e5a;
+  }
+  .keyboard-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #keyboardScroll {
+    overflow-x: auto;
+    flex: 1;
+  }
+  #keyboard {
+    position: relative;
+    height: 180px;
+    display: flex;
+    user-select: none;
+  }
+  .white-key {
+    flex: 0 0 auto;
+    background: #ffffff;
+    border: 1px solid #d3d1c7;
+    border-radius: 0 0 8px 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+    font-size: 11px;
+    color: #b4b2a9;
+    height: 100%;
+  }
+  .white-key:active { background: #ece9e1; }
+  .black-key {
+    position: absolute;
+    height: 60%;
+    background: #2c2c2a;
+    opacity: 0.9;
+    border-radius: 0 0 6px 6px;
+    cursor: pointer;
+    top: 0;
+    z-index: 2;
+  }
+  .black-key:active { opacity: 0.7; }
+  .hint {
+    font-size: 12px;
+    color: #888780;
+    margin-top: 12px;
+    text-align: center;
+  }
+  .wave-canvas-wrap {
+    margin-bottom: 20px;
+    border: 1px solid #d3d1c7;
+    border-radius: 8px;
+    background: #fafaf7;
+    padding: 8px;
+    height: 116px;
+    box-sizing: border-box;
+  }
+  canvas {
+    display: block;
+    width: 100%;
+    height: 100px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <p class="backlink"><a href="support.html">音階チェッカー サポートへ戻る</a></p>
+  <h1>Hz指定ピアノ</h1>
+
+  <div class="row">
+    <label>周波数 (Hz)</label>
+    <input type="number" id="freqInput" value="440" min="20" max="8000" step="0.01" />
+    <input type="range" id="freqSlider" min="20" max="2000" value="440" step="0.01" />
+    <button id="playBtn">▶ 再生(押し続ける)</button>
+  </div>
+
+  <div class="row">
+    <label>波形</label>
+    <select id="waveType">
+      <option value="sine">サイン波</option>
+      <option value="square">矩形波</option>
+      <option value="sawtooth">のこぎり波</option>
+      <option value="triangle">三角波</option>
+    </select>
+    <label style="margin-left: 12px; min-width: auto;">音量</label>
+    <input type="range" id="volSlider" min="0" max="1" value="0.3" step="0.01" style="flex: 0 0 100px;" />
+  </div>
+
+  <div class="wave-canvas-wrap">
+    <canvas id="waveCanvas"></canvas>
+  </div>
+
+  <div id="noteDisplay">440.00 Hz / A4</div>
+
+  <div class="keyboard-wrap">
+    <button id="scrollLeft" class="icon-btn">◀</button>
+    <div id="keyboardScroll">
+      <div id="keyboard"></div>
+    </div>
+    <button id="scrollRight" class="icon-btn">▶</button>
+  </div>
+  <div class="hint">鍵盤を押し続けると音が鳴ります。矢印ボタンで鍵盤をスライドできます(C2〜C6)。音階チェッカーの確認用テスト音として利用できます。</div>
+</div>
+
+<script>
+(function(){
+  const noteNames = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+
+  function freqToNote(freq){
+    const midi = 69 + 12 * Math.log2(freq / 440);
+    const rounded = Math.round(midi);
+    const cents = Math.round((midi - rounded) * 100);
+    const name = noteNames[((rounded % 12) + 12) % 12];
+    const octave = Math.floor(rounded / 12) - 1;
+    const sign = cents >= 0 ? '+' : '';
+    return name + octave + (cents !== 0 ? ' (' + sign + cents + ' cent)' : '');
+  }
+
+  function noteToFreq(midi){
+    return 440 * Math.pow(2, (midi - 69) / 12);
+  }
+
+  let audioCtx = null;
+  let currentOsc = null;
+  let currentGain = null;
+  let analyser = null;
+  let dataArray = null;
+  let offscreen = null;
+  let lastY = null;
+
+  function getCtx(){
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    return audioCtx;
+  }
+
+  function stopSound(){
+    if (currentOsc){
+      try {
+        const ctx = getCtx();
+        currentGain.gain.cancelScheduledValues(ctx.currentTime);
+        currentGain.gain.setValueAtTime(currentGain.gain.value, ctx.currentTime);
+        currentGain.gain.linearRampToValueAtTime(0.0001, ctx.currentTime + 0.05);
+        currentOsc.stop(ctx.currentTime + 0.06);
+      } catch(e){}
+      currentOsc = null;
+      currentGain = null;
+    }
+  }
+
+  function playSound(freq){
+    stopSound();
+    const ctx = getCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = document.getElementById('waveType').value;
+    osc.frequency.value = freq;
+    const vol = parseFloat(document.getElementById('volSlider').value);
+    gain.gain.value = 0.0001;
+
+    if (!analyser){
+      analyser = ctx.createAnalyser();
+      analyser.fftSize = 2048;
+    }
+
+    osc.connect(gain);
+    gain.connect(analyser);
+    gain.connect(ctx.destination);
+    osc.start();
+    gain.gain.exponentialRampToValueAtTime(Math.max(vol, 0.0001), ctx.currentTime + 0.02);
+
+    currentOsc = osc;
+    currentGain = gain;
+    ensureLoopRunning();
+  }
+
+  const waveCanvas = document.getElementById('waveCanvas');
+  const waveCtx = waveCanvas.getContext('2d');
+
+  function resizeCanvas(){
+    const rect = waveCanvas.getBoundingClientRect();
+    const w = Math.max(1, Math.floor(rect.width));
+    const h = Math.max(1, Math.floor(rect.height));
+    waveCanvas.width = w;
+    waveCanvas.height = h;
+  }
+
+  function drawIdleLine(){
+    const w = waveCanvas.width;
+    const h = waveCanvas.height;
+    waveCtx.clearRect(0, 0, w, h);
+    waveCtx.strokeStyle = '#d3d1c7';
+    waveCtx.lineWidth = 2;
+    waveCtx.beginPath();
+    waveCtx.moveTo(0, h / 2);
+    waveCtx.lineTo(w, h / 2);
+    waveCtx.stroke();
+  }
+
+  function drawWaveform(){
+    const w = waveCanvas.width;
+    const h = waveCanvas.height;
+    if (w < 4 || h < 4) return;
+
+    if (!offscreen || offscreen.width !== w || offscreen.height !== h){
+      offscreen = document.createElement('canvas');
+      offscreen.width = w;
+      offscreen.height = h;
+      const o = offscreen.getContext('2d');
+      o.fillStyle = '#fafaf7';
+      o.fillRect(0, 0, w, h);
+    }
+    const octx = offscreen.getContext('2d');
+
+    const shift = 2;
+    octx.drawImage(offscreen, shift, 0, w - shift, h, 0, 0, w - shift, h);
+    octx.fillStyle = '#fafaf7';
+    octx.fillRect(w - shift, 0, shift, h);
+
+    if (currentOsc && analyser){
+      if (!dataArray) dataArray = new Uint8Array(analyser.fftSize);
+      analyser.getByteTimeDomainData(dataArray);
+
+      const freq = parseFloat(freqInput.value) || 440;
+      let samplesPerFrame = Math.max(1, Math.round((freq / 440) * 6));
+      samplesPerFrame = Math.min(samplesPerFrame, dataArray.length - 1);
+
+      octx.strokeStyle = '#534ab7';
+      octx.lineWidth = 2;
+      octx.lineCap = 'round';
+      octx.lineJoin = 'round';
+      octx.beginPath();
+
+      let prevY = lastY === null ? (h - (dataArray[dataArray.length - samplesPerFrame - 1] / 255) * h) : lastY;
+      octx.moveTo(w - shift, prevY);
+
+      for (let i = 0; i < samplesPerFrame; i++){
+        const idx = dataArray.length - samplesPerFrame + i;
+        const value = dataArray[idx] / 255;
+        const y = h - value * h;
+        const x = w - shift + ((i + 1) / samplesPerFrame) * shift;
+        octx.lineTo(x, y);
+        prevY = y;
+      }
+      octx.stroke();
+      lastY = prevY;
+    } else {
+      octx.strokeStyle = '#d3d1c7';
+      octx.lineWidth = 2;
+      octx.beginPath();
+      octx.moveTo(w - shift, h / 2);
+      octx.lineTo(w, h / 2);
+      octx.stroke();
+      lastY = null;
+    }
+
+    waveCtx.clearRect(0, 0, w, h);
+    waveCtx.drawImage(offscreen, 0, 0);
+  }
+
+  let lastDrawTime = 0;
+  let loopRunning = false;
+
+  function animationLoop(timestamp){
+    if (!currentOsc){
+      drawWaveform();
+      loopRunning = false;
+      return;
+    }
+    if (!lastDrawTime) lastDrawTime = timestamp;
+    const elapsed = timestamp - lastDrawTime;
+    if (elapsed > 16){
+      lastDrawTime = timestamp;
+      drawWaveform();
+    }
+    requestAnimationFrame(animationLoop);
+  }
+
+  function ensureLoopRunning(){
+    if (!loopRunning){
+      loopRunning = true;
+      lastDrawTime = 0;
+      requestAnimationFrame(animationLoop);
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    drawWaveform();
+  });
+
+  const freqInput = document.getElementById('freqInput');
+  const freqSlider = document.getElementById('freqSlider');
+  const noteDisplay = document.getElementById('noteDisplay');
+  const playBtn = document.getElementById('playBtn');
+
+  function updateDisplay(freq){
+    noteDisplay.textContent = freq.toFixed(2) + ' Hz / ' + freqToNote(freq);
+  }
+
+  freqInput.addEventListener('input', () => {
+    let v = parseFloat(freqInput.value);
+    if (isNaN(v)) return;
+    if (v >= 20 && v <= 2000) freqSlider.value = v;
+    updateDisplay(v);
+  });
+
+  freqSlider.addEventListener('input', () => {
+    const v = parseFloat(freqSlider.value);
+    freqInput.value = v.toFixed(2);
+    updateDisplay(v);
+  });
+
+  function startFromButton(){
+    const v = parseFloat(freqInput.value);
+    if (isNaN(v) || v <= 0) return;
+    playSound(v);
+  }
+
+  playBtn.addEventListener('mousedown', startFromButton);
+  playBtn.addEventListener('mouseup', stopSound);
+  playBtn.addEventListener('mouseleave', stopSound);
+  playBtn.addEventListener('touchstart', (e) => { e.preventDefault(); startFromButton(); });
+  playBtn.addEventListener('touchend', stopSound);
+
+  const keyboard = document.getElementById('keyboard');
+  const startMidi = 36;
+  const numWhiteKeys = 29;
+  const whiteKeyPxWidth = 48;
+  const blackKeyPxWidth = whiteKeyPxWidth * 0.6;
+
+  keyboard.style.width = (numWhiteKeys * whiteKeyPxWidth) + 'px';
+
+  const whiteSemitones = [0,2,4,5,7,9,11];
+  const blackAfterWhiteIdx = {1:0, 3:1, 6:3, 8:4, 10:5};
+
+  function pressKey(midi){
+    const f = noteToFreq(midi);
+    freqInput.value = f.toFixed(2);
+    freqSlider.value = Math.min(2000, f);
+    updateDisplay(f);
+    playSound(f);
+  }
+
+  for (let i = 0; i < numWhiteKeys; i++){
+    const octave = Math.floor(i / 7);
+    const within = whiteSemitones[i % 7];
+    const midi = startMidi + octave * 12 + within;
+
+    const key = document.createElement('div');
+    key.className = 'white-key';
+    key.style.width = whiteKeyPxWidth + 'px';
+    const name = noteNames[((midi % 12) + 12) % 12];
+    if (name === 'C'){
+      key.textContent = 'C' + (Math.floor(midi/12) - 1);
+    }
+    key.addEventListener('mousedown', () => pressKey(midi));
+    key.addEventListener('mouseup', stopSound);
+    key.addEventListener('mouseleave', stopSound);
+    key.addEventListener('touchstart', (e) => { e.preventDefault(); pressKey(midi); });
+    key.addEventListener('touchend', stopSound);
+    keyboard.appendChild(key);
+  }
+
+  for (let octave = 0; octave < 4; octave++){
+    const baseMidi = startMidi + octave * 12;
+    for (const semitoneStr in blackAfterWhiteIdx){
+      const semitone = parseInt(semitoneStr);
+      const midi = baseMidi + semitone;
+      const whiteIdxWithin = blackAfterWhiteIdx[semitone];
+      const globalWhiteIdx = octave * 7 + whiteIdxWithin;
+      if (globalWhiteIdx + 1 >= numWhiteKeys) continue;
+
+      const key = document.createElement('div');
+      key.className = 'black-key';
+      key.style.width = blackKeyPxWidth + 'px';
+      key.style.left = ((globalWhiteIdx + 1) * whiteKeyPxWidth - blackKeyPxWidth/2) + 'px';
+      key.addEventListener('mousedown', () => pressKey(midi));
+      key.addEventListener('mouseup', stopSound);
+      key.addEventListener('mouseleave', stopSound);
+      key.addEventListener('touchstart', (e) => { e.preventDefault(); pressKey(midi); });
+      key.addEventListener('touchend', stopSound);
+      keyboard.appendChild(key);
+    }
+  }
+
+  const keyboardScroll = document.getElementById('keyboardScroll');
+  document.getElementById('scrollLeft').addEventListener('click', () => {
+    keyboardScroll.scrollBy({ left: -whiteKeyPxWidth * 4, behavior: 'smooth' });
+  });
+  document.getElementById('scrollRight').addEventListener('click', () => {
+    keyboardScroll.scrollBy({ left: whiteKeyPxWidth * 4, behavior: 'smooth' });
+  });
+
+  setTimeout(() => {
+    const c4Index = 14;
+    keyboardScroll.scrollLeft = c4Index * whiteKeyPxWidth - 100;
+  }, 0);
+
+  updateDisplay(440);
+  setTimeout(() => {
+    resizeCanvas();
+    drawIdleLine();
+  }, 50);
+})();
+</script>
+</body>
+</html>
