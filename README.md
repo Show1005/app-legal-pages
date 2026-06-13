@@ -20,6 +20,10 @@ Some apps may also provide small web tools related to the app.
 
 ## Public URLs
 
+### Tools
+
+- Tools index: `https://show1005.github.io/app-legal-pages/tools/`
+
 ### 賞味期限チェック
 
 - Privacy Policy: `https://show1005.github.io/app-legal-pages/shomikigen-check/privacy-policy.html`
