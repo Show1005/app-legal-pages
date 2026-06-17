@@ -1,291 +1,69 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="NFCタグセットアップで使えるショートカット起動タグの作成例を紹介します。">
-    <title>NFCタグセットアップ ショートカットサンプル集</title>
-    <style>
-      :root {
-        color-scheme: light;
-        --bg: #f5f1e8;
-        --panel: #fffdf8;
-        --text: #1f2933;
-        --muted: #52606d;
-        --accent: #1f7a5a;
-        --accent-soft: #d8eee6;
-        --border: #d9e2ec;
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NFCタグセットアップ ショートカットサンプル集</title>
+  <style>
+    body{margin:0;font-family:"Hiragino Sans","Yu Gothic",sans-serif;background:#f5f1e8;color:#1f2933;line-height:1.8}
+    main{max-width:760px;margin:0 auto;padding:32px 20px 56px}
+    section{background:#fffdf8;border:1px solid #d9e2ec;border-radius:20px;padding:22px 20px;box-shadow:0 14px 40px rgba(31,41,51,.08)}
+    section+section{margin-top:16px}h1{font-size:clamp(2rem,5vw,3rem)}h2{font-size:1.35rem}p,li{color:#52606d}code{background:#d8eee6;color:#1f7a5a;border-radius:8px;padding:2px 7px}a{color:#1f7a5a}.button{display:inline-block;margin-top:10px;padding:10px 16px;border-radius:999px;background:#1f7a5a;color:#fff;text-decoration:none;font-weight:700}
+  </style>
+</head>
+<body>
+<main>
+  <section>
+    <h1>NFCタグセットアップ ショートカットサンプル集</h1>
+    <p>iCloud共有ショートカットを追加してから、NFCタグセットアップで同じショートカット名を入力してください。</p>
+  </section>
 
-      * {
-        box-sizing: border-box;
-      }
+  <section>
+    <h2>Org 洗濯機完了タイマー</h2>
+    <p>入力する名前: <code>Org 洗濯機完了タイマー</code></p>
+    <a class="button" href="https://www.icloud.com/shortcuts/6627ace371d64c9589c66a6e89564af7">ショートカットを追加</a>
+  </section>
 
-      html {
-        -webkit-text-size-adjust: 100%;
-      }
+  <section>
+    <h2>Org 打刻</h2>
+    <p>入力する名前: <code>Org 打刻</code></p>
+    <a class="button" href="https://www.icloud.com/shortcuts/a7896eb4724a49029ab3290d8a25de5e">ショートカットを追加</a>
+  </section>
 
-      body {
-        margin: 0;
-        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
-        background: linear-gradient(180deg, #f8f5ee 0%, var(--bg) 100%);
-        color: var(--text);
-        line-height: 1.7;
-      }
+  <section>
+    <h2>Chatgptのボイス開始</h2>
+    <p>入力する名前: <code>Chatgptのボイス開始</code></p>
+    <a class="button" href="https://www.icloud.com/shortcuts/8afd2eb848de4a63aff0e524f970a942">ショートカットを追加</a>
+  </section>
 
-      main {
-        max-width: 760px;
-        margin: 0 auto;
-        padding: 32px 20px 56px;
-      }
+  <section>
+    <h2>Google map</h2>
+    <p>入力する名前: <code>Google map</code></p>
+    <a class="button" href="https://www.icloud.com/shortcuts/7844484623f542a78ebadbc002b4f9fc">ショートカットを追加</a>
+  </section>
 
-      .hero,
-      .card {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        box-shadow: 0 14px 40px rgba(31, 41, 51, 0.08);
-      }
+  <section>
+    <h2>ピヨログ　お風呂</h2>
+    <p>入力する名前: <code>ピヨログ　お風呂</code></p>
+    <a class="button" href="https://www.icloud.com/shortcuts/ff0a59546bd74af3836a040f5b64cd58">ショートカットを追加</a>
+  </section>
 
-      .hero {
-        padding: 28px 24px;
-        margin-bottom: 20px;
-      }
+  <section>
+    <h2>ピヨログ　睡眠</h2>
+    <p>入力する名前: <code>ピヨログ　睡眠</code></p>
+    <a class="button" href="https://www.icloud.com/shortcuts/4e1ab50851d34c48a3461cc35ab653e6">ショートカットを追加</a>
+  </section>
 
-      .hero p + p {
-        margin-top: 10px;
-      }
+  <section>
+    <h2>注意事項</h2>
+    <ul>
+      <li>ショートカット名は完全一致で入力してください。</li>
+      <li>NFCタグに書き込むのはiCloud共有リンクではなく、ショートカット起動用URLです。</li>
+      <li>動作はiOS、ショートカットアプリ、連携先アプリの設定に依存します。</li>
+    </ul>
+  </section>
 
-      .card {
-        padding: 22px 20px;
-      }
-
-      .card + .card {
-        margin-top: 16px;
-      }
-
-      .section-title {
-        margin: 28px 0 12px;
-        padding-left: 2px;
-        font-size: 1.15rem;
-        color: var(--text);
-      }
-
-      .eyebrow {
-        display: inline-block;
-        margin-bottom: 12px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-size: 0.9rem;
-        font-weight: 700;
-      }
-
-      h1,
-      h2 {
-        line-height: 1.3;
-      }
-
-      h1 {
-        margin: 0 0 10px;
-        font-size: clamp(2rem, 5vw, 3rem);
-      }
-
-      h2 {
-        margin: 0 0 14px;
-        font-size: 1.4rem;
-      }
-
-      p {
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .hero .lead {
-        color: var(--text);
-      }
-
-      .fields {
-        margin: 0;
-      }
-
-      .field {
-        display: grid;
-        grid-template-columns: minmax(112px, max-content) 1fr;
-        gap: 4px 16px;
-        padding: 12px 0;
-        border-top: 1px solid var(--border);
-      }
-
-      .field:first-child {
-        border-top: none;
-        padding-top: 0;
-      }
-
-      .field:last-child {
-        padding-bottom: 0;
-      }
-
-      .field dt {
-        margin: 0;
-        font-weight: 700;
-        color: var(--accent);
-        font-size: 0.92rem;
-      }
-
-      .field dd {
-        margin: 0;
-        color: var(--text);
-      }
-
-      code {
-        display: inline-block;
-        padding: 2px 7px;
-        border-radius: 8px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-        font-size: 0.92em;
-      }
-
-      .notes ul,
-      .steps {
-        margin: 14px 0 0;
-        padding-left: 20px;
-        color: var(--text);
-      }
-
-      .notes li + li,
-      .steps li + li {
-        margin-top: 10px;
-      }
-
-      a {
-        color: var(--accent);
-      }
-
-      a:focus-visible {
-        outline: 3px solid var(--accent);
-        outline-offset: 2px;
-        border-radius: 4px;
-      }
-
-      .backlink {
-        margin-top: 24px;
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      @media (max-width: 480px) {
-        .field {
-          grid-template-columns: 1fr;
-          gap: 2px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <section class="hero">
-        <div class="eyebrow">ショートカットサンプル集</div>
-        <h1>NFCタグセットアップ ショートカットサンプル集</h1>
-        <p class="lead">NFCタグに書き込んだショートカット起動リンクから実行できる、ショートカットの作成例です。</p>
-        <p class="lead">ショートカットアプリで同じ名前のショートカットを作成してから、NFCタグセットアップでショートカット名を入力してください。</p>
-      </section>
-
-      <h2 class="section-title">使い方</h2>
-
-      <section class="card" aria-labelledby="how-to-heading">
-        <h2 id="how-to-heading">基本の流れ</h2>
-        <ol class="steps">
-          <li>iPhoneのショートカットアプリで、下のサンプルと同じ名前のショートカットを作成します。</li>
-          <li>NFCタグセットアップで「ショートカット」タグを選び、ショートカット名を完全一致で入力します。</li>
-          <li>NFCタグへ書き込み、iPhoneでタグをタップして動作を確認します。</li>
-        </ol>
-      </section>
-
-      <h2 class="section-title">サンプル</h2>
-
-      <section class="card" aria-labelledby="sample-1">
-        <h2 id="sample-1">洗濯タイマー</h2>
-        <dl class="fields">
-          <div class="field">
-            <dt>説明</dt>
-            <dd>洗濯機に貼ったNFCタグをタップして、40分タイマーを開始します。</dd>
-          </div>
-          <div class="field">
-            <dt>ショートカット名</dt>
-            <dd><code>洗濯タイマー</code></dd>
-          </div>
-          <div class="field">
-            <dt>入力テキスト</dt>
-            <dd>空欄のままで構いません。</dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: タイマーを40分に設定</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="card" aria-labelledby="sample-2">
-        <h2 id="sample-2">作業開始</h2>
-        <dl class="fields">
-          <div class="field">
-            <dt>説明</dt>
-            <dd>デスクのNFCタグをタップして、集中モードや作業タイマーを開始します。</dd>
-          </div>
-          <div class="field">
-            <dt>ショートカット名</dt>
-            <dd><code>作業開始</code></dd>
-          </div>
-          <div class="field">
-            <dt>入力テキスト</dt>
-            <dd>空欄のままで構いません。必要に応じて、作業名などを渡す構成にもできます。</dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: 集中モードをオン、25分タイマーを開始、メモアプリを開く</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="card" aria-labelledby="sample-3">
-        <h2 id="sample-3">おやすみ準備</h2>
-        <dl class="fields">
-          <div class="field">
-            <dt>説明</dt>
-            <dd>ベッド横のNFCタグをタップして、寝る前の操作をまとめて実行します。</dd>
-          </div>
-          <div class="field">
-            <dt>ショートカット名</dt>
-            <dd><code>おやすみ準備</code></dd>
-          </div>
-          <div class="field">
-            <dt>入力テキスト</dt>
-            <dd>空欄のままで構いません。</dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: アラーム設定、睡眠集中モード、明日の天気を表示</dd>
-          </div>
-        </dl>
-      </section>
-
-      <h2 class="section-title">注意事項</h2>
-
-      <section class="card notes" aria-labelledby="notes-heading">
-        <h2 id="notes-heading">ご利用の前に</h2>
-        <ul>
-          <li>このページは作成例です。iCloudショートカット共有リンクは掲載していません。</li>
-          <li>ショートカットは、iPhoneのショートカットアプリでご自身の利用環境に合わせて作成してください。</li>
-          <li>NFCタグセットアップでは、ショートカット名を完全一致で入力する必要があります。</li>
-          <li>ショートカットの実行時確認や動作は、iOSとショートカット側の設定に依存します。</li>
-        </ul>
-      </section>
-
-      <p class="backlink"><a href="../index.html">一覧ページへ戻る</a></p>
-    </main>
-  </body>
+  <p><a href="../index.html">一覧ページへ戻る</a></p>
+</main>
+</body>
 </html>
