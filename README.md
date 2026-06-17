@@ -8,6 +8,7 @@ Public legal and support pages for small iOS apps published with GitHub Pages.
 - `過去問周回カウンター`
 - `サブスク管理｜更新日・解約通知`
 - `音階チェッカー`
+- `NFCタグセットアップ`
 
 ## Pages
 
@@ -44,3 +45,9 @@ Some apps may also provide small web tools related to the app.
 - Privacy Policy: `https://show1005.github.io/app-legal-pages/pitch-note-checker/privacy-policy.html`
 - Support: `https://show1005.github.io/app-legal-pages/pitch-note-checker/support.html`
 - Hz Piano: `https://show1005.github.io/app-legal-pages/pitch-note-checker/hz-piano.html`
+
+### NFCタグセットアップ
+
+- Privacy Policy: `https://show1005.github.io/app-legal-pages/nfc-setup/privacy-policy.html`
+- Support: `https://show1005.github.io/app-legal-pages/nfc-setup/support.html`
+- Shortcut Samples: `https://show1005.github.io/app-legal-pages/nfc-setup/shortcuts.html`
