@@ -12,13 +12,12 @@
         --text: #1f2933;
         --muted: #52606d;
         --accent: #1f7a5a;
+        --accent-dark: #185f45;
         --accent-soft: #d8eee6;
         --border: #d9e2ec;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      * { box-sizing: border-box; }
 
       body {
         margin: 0;
@@ -29,18 +28,19 @@
       }
 
       main {
-        max-width: 760px;
+        max-width: 680px;
         margin: 0 auto;
-        padding: 32px 20px 56px;
+        padding: 40px 20px 72px;
       }
 
+      /* ── tools shortcut ── */
       .tools-shortcut {
         position: fixed;
         top: 18px;
         right: 18px;
         z-index: 20;
-        width: 46px;
-        height: 46px;
+        width: 44px;
+        height: 44px;
         border-radius: 999px;
         display: inline-flex;
         align-items: center;
@@ -49,65 +49,40 @@
         border: 1px solid var(--border);
         color: var(--accent);
         text-decoration: none;
-        font-size: 1.25rem;
-        box-shadow: 0 10px 28px rgba(31, 41, 51, 0.12);
+        font-size: 1.2rem;
+        box-shadow: 0 8px 24px rgba(31, 41, 51, 0.1);
+        transition: background 0.15s;
+      }
+      .tools-shortcut:hover { background: var(--accent-soft); }
+
+      /* ── page header ── */
+      .page-header {
+        margin-bottom: 24px;
       }
 
-      .tools-shortcut:hover {
-        background: var(--accent-soft);
+      h1 {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
-      .hero,
+      /* ── app card ── */
       .card {
         background: var(--panel);
         border: 1px solid var(--border);
         border-radius: 20px;
-        box-shadow: 0 14px 40px rgba(31, 41, 51, 0.08);
-      }
-
-      .hero {
-        padding: 28px 24px;
-        margin-bottom: 20px;
-      }
-
-      .card + .card {
-        margin-top: 16px;
-      }
-
-      .eyebrow {
-        display: inline-block;
-        margin-bottom: 12px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-size: 0.9rem;
-        font-weight: 700;
-      }
-
-      h1,
-      h2 {
-        line-height: 1.3;
-      }
-
-      h1 {
-        margin: 0 0 10px;
-        font-size: clamp(2rem, 5vw, 3rem);
-      }
-
-      h2 {
-        margin: 0 0 4px;
-        font-size: 1.25rem;
-      }
-
-      p {
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .card {
+        box-shadow: 0 10px 32px rgba(31, 41, 51, 0.07);
         padding: 20px;
+        transition: box-shadow 0.2s, transform 0.2s;
       }
+      .card:hover {
+        box-shadow: 0 16px 48px rgba(31, 41, 51, 0.12);
+        transform: translateY(-2px);
+      }
+      .card + .card { margin-top: 14px; }
 
       .card-header {
         display: flex;
@@ -116,34 +91,68 @@
       }
 
       .app-icon {
-        width: 64px;
-        height: 64px;
-        border-radius: 14px;
+        width: 68px;
+        height: 68px;
+        border-radius: 16px;
         flex-shrink: 0;
-        box-shadow: 0 2px 8px rgba(31, 41, 51, 0.12);
+        box-shadow: 0 4px 12px rgba(31, 41, 51, 0.14);
       }
 
-      .card-header-text {
-        min-width: 0;
+      .card-header-text { min-width: 0; }
+
+      h2 {
+        margin: 0 0 3px;
+        font-size: 1.15rem;
+        line-height: 1.3;
+        color: var(--text);
       }
 
-      ul {
-        margin: 14px 0 0;
-        padding-left: 20px;
-      }
-
-      li + li {
-        margin-top: 10px;
-      }
-
-      a {
-        color: var(--accent);
-      }
-
-      footer {
-        margin-top: 18px;
+      .tagline {
+        margin: 0;
+        font-size: 0.9rem;
         color: var(--muted);
-        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      /* ── link chips ── */
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 16px;
+        border-radius: 999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+        white-space: nowrap;
+      }
+
+      .chip-primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(31, 122, 90, 0.25);
+      }
+      .chip-primary:hover {
+        background: var(--accent-dark);
+        box-shadow: 0 4px 12px rgba(31, 122, 90, 0.35);
+      }
+
+      .chip-secondary {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border: 1px solid rgba(31, 122, 90, 0.18);
+      }
+      .chip-secondary:hover {
+        background: var(--accent);
+        color: #fff;
+        border-color: transparent;
       }
     </style>
   </head>
@@ -151,82 +160,80 @@
     <a class="tools-shortcut" href="tools/" aria-label="ツール一覧" title="ツール一覧">🛠</a>
 
     <main>
-      <section class="hero">
-        <div class="eyebrow">GitHub Pages</div>
+      <header class="page-header">
         <h1>App Legal Pages</h1>
-        <p>小規模 iOS アプリ向けの公開サポート / 法務ページ一覧です。</p>
-      </section>
+      </header>
 
       <section class="card" aria-labelledby="shomikigen-check">
         <div class="card-header">
-          <img class="app-icon" src="assets/icons/shomikigen-check.png" alt="賞味期限チェック アイコン" width="64" height="64">
+          <img class="app-icon" src="assets/icons/shomikigen-check.png" alt="賞味期限チェック アイコン" width="68" height="68">
           <div class="card-header-text">
             <h2 id="shomikigen-check">賞味期限チェック</h2>
-            <p>プライバシーポリシーとサポートページを公開しています。</p>
+            <p class="tagline">食品の賞味期限・開封日をローカル通知つきで管理</p>
           </div>
         </div>
-        <ul>
-          <li><a href="shomikigen-check/privacy-policy.html">プライバシーポリシー</a></li>
-          <li><a href="shomikigen-check/support.html">サポート</a></li>
-        </ul>
+        <div class="chips">
+          <a class="chip chip-primary" href="shomikigen-check/support.html">サポート</a>
+          <a class="chip chip-secondary" href="shomikigen-check/privacy-policy.html">プライバシーポリシー</a>
+        </div>
       </section>
 
       <section class="card" aria-labelledby="past-question-round-counter">
         <div class="card-header">
-          <img class="app-icon" src="assets/icons/past-question-round-counter.png" alt="過去問周回カウンター アイコン" width="64" height="64">
+          <img class="app-icon" src="assets/icons/past-question-round-counter.png" alt="過去問周回カウンター アイコン" width="68" height="68">
           <div class="card-header-text">
             <h2 id="past-question-round-counter">過去問周回カウンター</h2>
-            <p>プライバシーポリシーとサポートページを公開しています。</p>
+            <p class="tagline">資格試験・受験勉強の過去問周回数を記録</p>
           </div>
         </div>
-        <ul>
-          <li><a href="past-question-round-counter/privacy-policy.html">プライバシーポリシー</a></li>
-          <li><a href="past-question-round-counter/support.html">サポート</a></li>
-        </ul>
+        <div class="chips">
+          <a class="chip chip-primary" href="past-question-round-counter/support.html">サポート</a>
+          <a class="chip chip-secondary" href="past-question-round-counter/privacy-policy.html">プライバシーポリシー</a>
+        </div>
       </section>
 
       <section class="card" aria-labelledby="subscription-cancel-calendar-ios">
         <div class="card-header">
-          <img class="app-icon" src="assets/icons/subscription-cancel-calendar.png" alt="サブスク管理 アイコン" width="64" height="64">
+          <img class="app-icon" src="assets/icons/subscription-cancel-calendar.png" alt="サブスク管理 アイコン" width="68" height="68">
           <div class="card-header-text">
             <h2 id="subscription-cancel-calendar-ios">サブスク管理｜更新日・解約通知</h2>
-            <p>プライバシーポリシーとサポートページを公開しています。</p>
+            <p class="tagline">サブスクの更新日・解約期限をカレンダーと通知で管理</p>
           </div>
         </div>
-        <ul>
-          <li><a href="subscription-cancel-calendar-ios/privacy/">プライバシーポリシー</a></li>
-          <li><a href="subscription-cancel-calendar-ios/support/">サポート</a></li>
-        </ul>
+        <div class="chips">
+          <a class="chip chip-primary" href="subscription-cancel-calendar-ios/support/">サポート</a>
+          <a class="chip chip-secondary" href="subscription-cancel-calendar-ios/privacy/">プライバシーポリシー</a>
+        </div>
       </section>
 
       <section class="card" aria-labelledby="pitch-note-checker">
         <div class="card-header">
-          <img class="app-icon" src="assets/icons/pitch-note-checker.png" alt="音階チェッカー アイコン" width="64" height="64">
+          <img class="app-icon" src="assets/icons/pitch-note-checker.png" alt="音階チェッカー アイコン" width="68" height="68">
           <div class="card-header-text">
             <h2 id="pitch-note-checker">音階チェッカー</h2>
-            <p>プライバシーポリシー、サポートページ、関連ツールを公開しています。</p>
+            <p class="tagline">マイクで音を解析し、音名をリアルタイムに表示</p>
           </div>
         </div>
-        <ul>
-          <li><a href="pitch-note-checker/privacy-policy.html">プライバシーポリシー</a></li>
-          <li><a href="pitch-note-checker/support.html">サポート</a></li>
-          <li><a href="pitch-note-checker/hz-piano.html">Hz指定ピアノ</a></li>
-        </ul>
+        <div class="chips">
+          <a class="chip chip-primary" href="pitch-note-checker/support.html">サポート</a>
+          <a class="chip chip-secondary" href="pitch-note-checker/privacy-policy.html">プライバシーポリシー</a>
+          <a class="chip chip-secondary" href="pitch-note-checker/hz-piano.html">Hz指定ピアノ</a>
+        </div>
       </section>
 
       <section class="card" aria-labelledby="nfc-setup">
         <div class="card-header">
-          <img class="app-icon" src="assets/icons/nfc-setup.png" alt="NFCタグセットアップ アイコン" width="64" height="64">
+          <img class="app-icon" src="assets/icons/nfc-setup.png" alt="NFCタグセットアップ アイコン" width="68" height="68">
           <div class="card-header-text">
             <h2 id="nfc-setup">NFCタグセットアップ</h2>
-            <p>プライバシーポリシー、サポートページ、ショートカットサンプル集を公開しています。</p>
+            <p class="tagline">NFCタグにURL・Wi-Fi・ショートカットなどを書き込み</p>
           </div>
         </div>
-        <ul>
-          <li><a href="nfc-setup/privacy-policy.html">プライバシーポリシー</a></li>
-          <li><a href="nfc-setup/support.html">サポート</a></li>
-          <li><a href="nfc-setup/shortcuts.html">ショートカットサンプル集</a></li>
-        </ul>
+        <div class="chips">
+          <a class="chip chip-primary" href="nfc-setup/support.html">サポート</a>
+          <a class="chip chip-secondary" href="nfc-setup/privacy-policy.html">プライバシーポリシー</a>
+          <a class="chip chip-secondary" href="nfc-setup/shortcuts.html">ショートカットサンプル集</a>
+        </div>
       </section>
 
     </main>
