@@ -150,6 +150,34 @@
         font-size: 0.92em;
       }
 
+      .copy-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .copy-btn {
+        appearance: none;
+        border: 1px solid rgba(31, 122, 90, 0.24);
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 700;
+        padding: 4px 10px;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+      }
+
+      .copy-btn:hover,
+      .copy-btn:focus-visible {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
       .icloud-btn {
         display: inline-flex;
         align-items: center;
@@ -223,6 +251,7 @@
         <ol class="steps">
           <li>下のサンプルの「iCloud共有リンクを開く」ボタンをタップし、ショートカットアプリで取り込みます。</li>
           <li>NFCタグセットアップで「ショートカット」タグを選び、ショートカット名を完全一致で入力します。</li>
+          <li>入力する名前の横にある「コピー」ボタンで、ショートカット名をそのままコピーできます。</li>
           <li>NFCタグへ書き込み、iPhoneでタグをタップして動作を確認します。</li>
         </ol>
       </section>
@@ -230,7 +259,7 @@
       <h2 class="section-title">サンプル</h2>
 
       <section class="card" aria-labelledby="sample-1">
-        <h2 id="sample-1">Org 洗濯機完了タイマー</h2>
+        <h2 id="sample-1">洗濯機完了タイマー</h2>
         <dl class="fields">
           <div class="field">
             <dt>用途</dt>
@@ -238,18 +267,18 @@
           </div>
           <div class="field">
             <dt>ショートカット名</dt>
-            <dd><code>Org 洗濯機完了タイマー</code></dd>
+            <dd><code>洗濯機完了タイマー</code></dd>
           </div>
           <div class="field">
             <dt>NFCタグセットアップで入力する名前</dt>
-            <dd><code>Org 洗濯機完了タイマー</code></dd>
+            <dd class="copy-row"><code>洗濯機完了タイマー</code><button class="copy-btn" type="button" data-copy="洗濯機完了タイマー">コピー</button></dd>
           </div>
         </dl>
         <a class="icloud-btn" href="https://www.icloud.com/shortcuts/6627ace371d64c9589c66a6e89564af7" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <section class="card" aria-labelledby="sample-2">
-        <h2 id="sample-2">Org 打刻</h2>
+        <h2 id="sample-2">打刻</h2>
         <dl class="fields">
           <div class="field">
             <dt>用途</dt>
@@ -257,11 +286,11 @@
           </div>
           <div class="field">
             <dt>ショートカット名</dt>
-            <dd><code>Org 打刻</code></dd>
+            <dd><code>打刻</code></dd>
           </div>
           <div class="field">
             <dt>NFCタグセットアップで入力する名前</dt>
-            <dd><code>Org 打刻</code></dd>
+            <dd class="copy-row"><code>打刻</code><button class="copy-btn" type="button" data-copy="打刻">コピー</button></dd>
           </div>
         </dl>
         <a class="icloud-btn" href="https://www.icloud.com/shortcuts/a7896eb4724a49029ab3290d8a25de5e" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
@@ -280,7 +309,7 @@
           </div>
           <div class="field">
             <dt>NFCタグセットアップで入力する名前</dt>
-            <dd><code>ChatGPTのボイス開始</code></dd>
+            <dd class="copy-row"><code>ChatGPTのボイス開始</code><button class="copy-btn" type="button" data-copy="ChatGPTのボイス開始">コピー</button></dd>
           </div>
         </dl>
         <a class="icloud-btn" href="https://www.icloud.com/shortcuts/8afd2eb848de4a63aff0e524f970a942" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
@@ -299,7 +328,7 @@
           </div>
           <div class="field">
             <dt>NFCタグセットアップで入力する名前</dt>
-            <dd><code>Google Map</code></dd>
+            <dd class="copy-row"><code>Google Map</code><button class="copy-btn" type="button" data-copy="Google Map">コピー</button></dd>
           </div>
         </dl>
         <a class="icloud-btn" href="https://www.icloud.com/shortcuts/7844484623f542a78ebadbc002b4f9fc" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
@@ -318,7 +347,7 @@
           </div>
           <div class="field">
             <dt>NFCタグセットアップで入力する名前</dt>
-            <dd><code>ピヨログ お風呂</code></dd>
+            <dd class="copy-row"><code>ピヨログ お風呂</code><button class="copy-btn" type="button" data-copy="ピヨログ お風呂">コピー</button></dd>
           </div>
         </dl>
         <a class="icloud-btn" href="https://www.icloud.com/shortcuts/ff0a59546bd74af3836a040f5b64cd58" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
@@ -337,7 +366,7 @@
           </div>
           <div class="field">
             <dt>NFCタグセットアップで入力する名前</dt>
-            <dd><code>ピヨログ 睡眠</code></dd>
+            <dd class="copy-row"><code>ピヨログ 睡眠</code><button class="copy-btn" type="button" data-copy="ピヨログ 睡眠">コピー</button></dd>
           </div>
         </dl>
         <a class="icloud-btn" href="https://www.icloud.com/shortcuts/4e1ab50851d34c48a3461cc35ab653e6" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
@@ -358,5 +387,33 @@
 
       <p class="backlink"><a href="../index.html">一覧ページへ戻る</a></p>
     </main>
+    <script>
+      document.querySelectorAll(".copy-btn").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const text = button.dataset.copy || "";
+          const originalLabel = button.textContent;
+
+          try {
+            await navigator.clipboard.writeText(text);
+            button.textContent = "コピー済み";
+          } catch (_) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "absolute";
+            textarea.style.left = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            button.textContent = "コピー済み";
+          }
+
+          window.setTimeout(() => {
+            button.textContent = originalLabel;
+          }, 1400);
+        });
+      });
+    </script>
   </body>
 </html>
