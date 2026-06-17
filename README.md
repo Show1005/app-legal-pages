@@ -48,4 +48,6 @@ Some apps may also provide small web tools related to the app.
 
 ### NFCタグセットアップ
 
-- Shortcut Samples: `https://show1005.github.io/app-legal-pages/shortcuts.html`
+- Privacy Policy: `https://show1005.github.io/app-legal-pages/nfc-setup/privacy-policy.html`
+- Support: `https://show1005.github.io/app-legal-pages/nfc-setup/support.html`
+- Shortcut Samples: `https://show1005.github.io/app-legal-pages/nfc-setup/shortcuts.html`
