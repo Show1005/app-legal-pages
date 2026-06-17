@@ -55,38 +55,18 @@
       }
       .tools-shortcut:hover { background: var(--accent-soft); }
 
-      /* ── hero ── */
-      .hero {
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        box-shadow: 0 16px 48px rgba(31, 41, 51, 0.08);
-        padding: 32px 28px;
+      /* ── page header ── */
+      .page-header {
         margin-bottom: 24px;
       }
 
-      .eyebrow {
-        display: inline-block;
-        margin-bottom: 14px;
-        padding: 5px 12px;
-        border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.03em;
-      }
-
       h1 {
-        margin: 0 0 8px;
-        font-size: clamp(1.9rem, 5vw, 2.8rem);
-        line-height: 1.2;
-      }
-
-      .hero p {
         margin: 0;
+        font-size: 0.8rem;
+        font-weight: 700;
         color: var(--muted);
-        font-size: 1rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       /* ── app card ── */
@@ -180,11 +160,9 @@
     <a class="tools-shortcut" href="tools/" aria-label="ツール一覧" title="ツール一覧">🛠</a>
 
     <main>
-      <section class="hero">
-        <div class="eyebrow">GitHub Pages</div>
+      <header class="page-header">
         <h1>App Legal Pages</h1>
-        <p>小規模 iOS アプリのサポート・プライバシーポリシー一覧です。</p>
-      </section>
+      </header>
 
       <section class="card" aria-labelledby="shomikigen-check">
         <div class="card-header">
