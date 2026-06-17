@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="NFCタグセットアップで使えるショートカット起動タグの作成例を紹介します。">
     <title>NFCタグセットアップ ショートカットサンプル集</title>
     <style>
       :root {
@@ -111,7 +112,7 @@
 
       .field {
         display: grid;
-        grid-template-columns: minmax(96px, max-content) 1fr;
+        grid-template-columns: minmax(112px, max-content) 1fr;
         gap: 4px 16px;
         padding: 12px 0;
         border-top: 1px solid var(--border);
@@ -138,23 +139,25 @@
         color: var(--text);
       }
 
-      .pill {
+      code {
         display: inline-block;
-        padding: 2px 10px;
-        border-radius: 999px;
+        padding: 2px 7px;
+        border-radius: 8px;
         background: var(--accent-soft);
         color: var(--accent);
-        font-size: 0.85rem;
-        font-weight: 700;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.92em;
       }
 
-      .notes ul {
+      .notes ul,
+      .steps {
         margin: 14px 0 0;
         padding-left: 20px;
         color: var(--text);
       }
 
-      .notes li + li {
+      .notes li + li,
+      .steps li + li {
         margin-top: 10px;
       }
 
@@ -191,6 +194,17 @@
         <p class="lead">ショートカットアプリで同じ名前のショートカットを作成してから、NFCタグセットアップでショートカット名を入力してください。</p>
       </section>
 
+      <h2 class="section-title">使い方</h2>
+
+      <section class="card" aria-labelledby="how-to-heading">
+        <h2 id="how-to-heading">基本の流れ</h2>
+        <ol class="steps">
+          <li>iPhoneのショートカットアプリで、下のサンプルと同じ名前のショートカットを作成します。</li>
+          <li>NFCタグセットアップで「ショートカット」タグを選び、ショートカット名を完全一致で入力します。</li>
+          <li>NFCタグへ書き込み、iPhoneでタグをタップして動作を確認します。</li>
+        </ol>
+      </section>
+
       <h2 class="section-title">サンプル</h2>
 
       <section class="card" aria-labelledby="sample-1">
@@ -201,12 +215,16 @@
             <dd>洗濯機に貼ったNFCタグをタップして、40分タイマーを開始します。</dd>
           </div>
           <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: タイマーを40分に設定</dd>
+            <dt>ショートカット名</dt>
+            <dd><code>洗濯タイマー</code></dd>
           </div>
           <div class="field">
-            <dt>iCloud共有リンク</dt>
-            <dd><span class="pill">準備中</span></dd>
+            <dt>入力テキスト</dt>
+            <dd>空欄のままで構いません。</dd>
+          </div>
+          <div class="field">
+            <dt>作成例</dt>
+            <dd>アクション: タイマーを40分に設定</dd>
           </div>
         </dl>
       </section>
@@ -219,12 +237,16 @@
             <dd>デスクのNFCタグをタップして、集中モードや作業タイマーを開始します。</dd>
           </div>
           <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: 集中モードをオン、25分タイマーを開始、メモアプリを開く</dd>
+            <dt>ショートカット名</dt>
+            <dd><code>作業開始</code></dd>
           </div>
           <div class="field">
-            <dt>iCloud共有リンク</dt>
-            <dd><span class="pill">準備中</span></dd>
+            <dt>入力テキスト</dt>
+            <dd>空欄のままで構いません。必要に応じて、作業名などを渡す構成にもできます。</dd>
+          </div>
+          <div class="field">
+            <dt>作成例</dt>
+            <dd>アクション: 集中モードをオン、25分タイマーを開始、メモアプリを開く</dd>
           </div>
         </dl>
       </section>
@@ -237,12 +259,16 @@
             <dd>ベッド横のNFCタグをタップして、寝る前の操作をまとめて実行します。</dd>
           </div>
           <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: アラーム設定、睡眠集中モード、明日の天気を表示</dd>
+            <dt>ショートカット名</dt>
+            <dd><code>おやすみ準備</code></dd>
           </div>
           <div class="field">
-            <dt>iCloud共有リンク</dt>
-            <dd><span class="pill">準備中</span></dd>
+            <dt>入力テキスト</dt>
+            <dd>空欄のままで構いません。</dd>
+          </div>
+          <div class="field">
+            <dt>作成例</dt>
+            <dd>アクション: アラーム設定、睡眠集中モード、明日の天気を表示</dd>
           </div>
         </dl>
       </section>
@@ -252,7 +278,8 @@
       <section class="card notes" aria-labelledby="notes-heading">
         <h2 id="notes-heading">ご利用の前に</h2>
         <ul>
-          <li>サンプルショートカットは、iPhoneのショートカットアプリに追加または作成してから利用してください。</li>
+          <li>このページは作成例です。iCloudショートカット共有リンクは掲載していません。</li>
+          <li>ショートカットは、iPhoneのショートカットアプリでご自身の利用環境に合わせて作成してください。</li>
           <li>NFCタグセットアップでは、ショートカット名を完全一致で入力する必要があります。</li>
           <li>ショートカットの実行時確認や動作は、iOSとショートカット側の設定に依存します。</li>
         </ul>
