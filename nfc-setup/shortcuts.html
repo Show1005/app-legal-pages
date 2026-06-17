@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="NFCタグセットアップで使えるショートカット起動タグの作成例を紹介します。">
+    <meta name="description" content="NFCタグセットアップで使えるショートカットのiCloud共有リンク集です。">
     <title>NFCタグセットアップ ショートカットサンプル集</title>
     <style>
       :root {
@@ -13,6 +13,7 @@
         --text: #1f2933;
         --muted: #52606d;
         --accent: #1f7a5a;
+        --accent-dark: #185f45;
         --accent-soft: #d8eee6;
         --border: #d9e2ec;
       }
@@ -112,7 +113,7 @@
 
       .field {
         display: grid;
-        grid-template-columns: minmax(112px, max-content) 1fr;
+        grid-template-columns: minmax(160px, max-content) 1fr;
         gap: 4px 16px;
         padding: 12px 0;
         border-top: 1px solid var(--border);
@@ -147,6 +148,27 @@
         color: var(--accent);
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         font-size: 0.92em;
+      }
+
+      .icloud-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 14px;
+        padding: 9px 18px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(31, 122, 90, 0.25);
+        transition: background 0.15s, box-shadow 0.15s;
+      }
+
+      .icloud-btn:hover {
+        background: var(--accent-dark);
+        box-shadow: 0 4px 12px rgba(31, 122, 90, 0.35);
       }
 
       .notes ul,
@@ -190,8 +212,8 @@
       <section class="hero">
         <div class="eyebrow">ショートカットサンプル集</div>
         <h1>NFCタグセットアップ ショートカットサンプル集</h1>
-        <p class="lead">NFCタグに書き込んだショートカット起動リンクから実行できる、ショートカットの作成例です。</p>
-        <p class="lead">ショートカットアプリで同じ名前のショートカットを作成してから、NFCタグセットアップでショートカット名を入力してください。</p>
+        <p class="lead">iCloud共有リンクからショートカットを取り込んで、NFCタグから実行できるようにするためのサンプル集です。</p>
+        <p class="lead">各ショートカットを取り込んだあと、NFCタグセットアップでショートカット名を入力してNFCタグへ書き込んでください。</p>
       </section>
 
       <h2 class="section-title">使い方</h2>
@@ -199,7 +221,7 @@
       <section class="card" aria-labelledby="how-to-heading">
         <h2 id="how-to-heading">基本の流れ</h2>
         <ol class="steps">
-          <li>iPhoneのショートカットアプリで、下のサンプルと同じ名前のショートカットを作成します。</li>
+          <li>下のサンプルの「iCloud共有リンクを開く」ボタンをタップし、ショートカットアプリで取り込みます。</li>
           <li>NFCタグセットアップで「ショートカット」タグを選び、ショートカット名を完全一致で入力します。</li>
           <li>NFCタグへ書き込み、iPhoneでタグをタップして動作を確認します。</li>
         </ol>
@@ -208,69 +230,117 @@
       <h2 class="section-title">サンプル</h2>
 
       <section class="card" aria-labelledby="sample-1">
-        <h2 id="sample-1">洗濯タイマー</h2>
+        <h2 id="sample-1">Org 洗濯機完了タイマー</h2>
         <dl class="fields">
           <div class="field">
-            <dt>説明</dt>
-            <dd>洗濯機に貼ったNFCタグをタップして、40分タイマーを開始します。</dd>
+            <dt>用途</dt>
+            <dd>洗濯機の完了タイマーを開始する</dd>
           </div>
           <div class="field">
             <dt>ショートカット名</dt>
-            <dd><code>洗濯タイマー</code></dd>
+            <dd><code>Org 洗濯機完了タイマー</code></dd>
           </div>
           <div class="field">
-            <dt>入力テキスト</dt>
-            <dd>空欄のままで構いません。</dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: タイマーを40分に設定</dd>
+            <dt>NFCタグセットアップで入力する名前</dt>
+            <dd><code>Org 洗濯機完了タイマー</code></dd>
           </div>
         </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/6627ace371d64c9589c66a6e89564af7" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <section class="card" aria-labelledby="sample-2">
-        <h2 id="sample-2">作業開始</h2>
+        <h2 id="sample-2">Org 打刻</h2>
         <dl class="fields">
           <div class="field">
-            <dt>説明</dt>
-            <dd>デスクのNFCタグをタップして、集中モードや作業タイマーを開始します。</dd>
+            <dt>用途</dt>
+            <dd>作業開始・終了などの打刻を行う</dd>
           </div>
           <div class="field">
             <dt>ショートカット名</dt>
-            <dd><code>作業開始</code></dd>
+            <dd><code>Org 打刻</code></dd>
           </div>
           <div class="field">
-            <dt>入力テキスト</dt>
-            <dd>空欄のままで構いません。必要に応じて、作業名などを渡す構成にもできます。</dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: 集中モードをオン、25分タイマーを開始、メモアプリを開く</dd>
+            <dt>NFCタグセットアップで入力する名前</dt>
+            <dd><code>Org 打刻</code></dd>
           </div>
         </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/a7896eb4724a49029ab3290d8a25de5e" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <section class="card" aria-labelledby="sample-3">
-        <h2 id="sample-3">おやすみ準備</h2>
+        <h2 id="sample-3">ChatGPTのボイス開始</h2>
         <dl class="fields">
           <div class="field">
-            <dt>説明</dt>
-            <dd>ベッド横のNFCタグをタップして、寝る前の操作をまとめて実行します。</dd>
+            <dt>用途</dt>
+            <dd>ChatGPTの音声会話を開始する</dd>
           </div>
           <div class="field">
             <dt>ショートカット名</dt>
-            <dd><code>おやすみ準備</code></dd>
+            <dd><code>ChatGPTのボイス開始</code></dd>
           </div>
           <div class="field">
-            <dt>入力テキスト</dt>
-            <dd>空欄のままで構いません。</dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: アラーム設定、睡眠集中モード、明日の天気を表示</dd>
+            <dt>NFCタグセットアップで入力する名前</dt>
+            <dd><code>ChatGPTのボイス開始</code></dd>
           </div>
         </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/8afd2eb848de4a63aff0e524f970a942" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
+      </section>
+
+      <section class="card" aria-labelledby="sample-4">
+        <h2 id="sample-4">Google Map</h2>
+        <dl class="fields">
+          <div class="field">
+            <dt>用途</dt>
+            <dd>Google Mapを開く</dd>
+          </div>
+          <div class="field">
+            <dt>ショートカット名</dt>
+            <dd><code>Google Map</code></dd>
+          </div>
+          <div class="field">
+            <dt>NFCタグセットアップで入力する名前</dt>
+            <dd><code>Google Map</code></dd>
+          </div>
+        </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/7844484623f542a78ebadbc002b4f9fc" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
+      </section>
+
+      <section class="card" aria-labelledby="sample-5">
+        <h2 id="sample-5">ピヨログ お風呂</h2>
+        <dl class="fields">
+          <div class="field">
+            <dt>用途</dt>
+            <dd>ピヨログにお風呂の記録を追加する</dd>
+          </div>
+          <div class="field">
+            <dt>ショートカット名</dt>
+            <dd><code>ピヨログ お風呂</code></dd>
+          </div>
+          <div class="field">
+            <dt>NFCタグセットアップで入力する名前</dt>
+            <dd><code>ピヨログ お風呂</code></dd>
+          </div>
+        </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/ff0a59546bd74af3836a040f5b64cd58" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
+      </section>
+
+      <section class="card" aria-labelledby="sample-6">
+        <h2 id="sample-6">ピヨログ 睡眠</h2>
+        <dl class="fields">
+          <div class="field">
+            <dt>用途</dt>
+            <dd>ピヨログに睡眠の記録を追加する</dd>
+          </div>
+          <div class="field">
+            <dt>ショートカット名</dt>
+            <dd><code>ピヨログ 睡眠</code></dd>
+          </div>
+          <div class="field">
+            <dt>NFCタグセットアップで入力する名前</dt>
+            <dd><code>ピヨログ 睡眠</code></dd>
+          </div>
+        </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/4e1ab50851d34c48a3461cc35ab653e6" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <h2 class="section-title">注意事項</h2>
@@ -278,10 +348,11 @@
       <section class="card notes" aria-labelledby="notes-heading">
         <h2 id="notes-heading">ご利用の前に</h2>
         <ul>
-          <li>このページは作成例です。iCloudショートカット共有リンクは掲載していません。</li>
-          <li>ショートカットは、iPhoneのショートカットアプリでご自身の利用環境に合わせて作成してください。</li>
+          <li>NFCタグに書き込むのはiCloud共有リンクではなく、ショートカット起動用URLです。iCloud共有リンクはショートカットを取り込むためのものです。</li>
+          <li>共有ショートカットの内容は、取り込み前に必ず確認してから追加してください。</li>
           <li>NFCタグセットアップでは、ショートカット名を完全一致で入力する必要があります。</li>
-          <li>ショートカットの実行時確認や動作は、iOSとショートカット側の設定に依存します。</li>
+          <li>iOSやショートカット側の設定により、実行時に確認ダイアログが表示される場合があります。</li>
+          <li>ピヨログやGoogle Mapなど外部アプリと連携するショートカットは、対象アプリがインストール済みである必要があります。</li>
         </ul>
       </section>
 
