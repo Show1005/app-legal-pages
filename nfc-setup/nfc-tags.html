@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="NFCタグセットアップで使えるNFCタグの選び方と購入ガイドです。">
+    <title>NFCタグの選び方 — NFCタグセットアップ</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #eef1f6;
+        --panel: #ffffff;
+        --text: #0e1726;
+        --muted: #707c8c;
+        --accent: #0a6cff;
+        --accent-dark: #0050cc;
+        --accent-soft: #dbeafe;
+        --border: #e3e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+      }
+
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .hero,
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: 0 4px 16px rgba(13, 30, 68, 0.06);
+      }
+
+      .hero {
+        padding: 28px 24px;
+        margin-bottom: 20px;
+      }
+
+      .hero p + p {
+        margin-top: 10px;
+      }
+
+      .card {
+        padding: 22px 20px;
+      }
+
+      .card + .card {
+        margin-top: 16px;
+      }
+
+      .section-title {
+        margin: 28px 0 12px;
+        padding-left: 2px;
+        font-size: 1.15rem;
+        color: var(--text);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.3;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+      }
+
+      h2 {
+        margin: 0 0 14px;
+        font-size: 1.2rem;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .hero .lead {
+        color: var(--text);
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 12px 0 0;
+      }
+
+      .tag-chip {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.88rem;
+        font-weight: 700;
+        border: 1px solid rgba(10, 108, 255, 0.15);
+      }
+
+      .fields {
+        margin: 0;
+      }
+
+      .field {
+        padding: 12px 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .field:first-child {
+        border-top: none;
+        padding-top: 0;
+      }
+
+      .field:last-child {
+        padding-bottom: 0;
+      }
+
+      .field dt {
+        margin: 0 0 3px;
+        font-weight: 700;
+        color: var(--accent);
+        font-size: 0.9rem;
+      }
+
+      .field dd {
+        margin: 0;
+        color: var(--text);
+        font-size: 0.95rem;
+      }
+
+      .search-list {
+        margin: 12px 0 0;
+        padding-left: 20px;
+        color: var(--text);
+      }
+
+      .search-list li + li {
+        margin-top: 8px;
+      }
+
+      code {
+        display: inline-block;
+        padding: 2px 7px;
+        border-radius: 8px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 0.92em;
+      }
+
+      .caution-list {
+        margin: 12px 0 0;
+        padding-left: 20px;
+        color: var(--muted);
+      }
+
+      .caution-list li + li {
+        margin-top: 8px;
+      }
+
+      a {
+        color: var(--accent);
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      .backlink {
+        margin-top: 24px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">NFCタグガイド</div>
+        <h1>NFCタグの選び方</h1>
+        <p class="lead">このアプリでNFCタグを使うために、対応タグの種類と選び方をまとめました。</p>
+      </section>
+
+      <h2 class="section-title">おすすめのタグ</h2>
+
+      <section class="card" aria-labelledby="recommended-heading">
+        <h2 id="recommended-heading">NTAG213 / NTAG215 / NTAG216</h2>
+        <p>iPhoneで使う場合は、以下のタグがおすすめです。</p>
+        <div class="tag-list">
+          <span class="tag-chip">NTAG213</span>
+          <span class="tag-chip">NTAG215</span>
+          <span class="tag-chip">NTAG216</span>
+        </div>
+        <dl class="fields" style="margin-top:16px;">
+          <div class="field">
+            <dt>まず試すなら</dt>
+            <dd>NTAG213の丸型シールタイプで十分です。URL・テキスト・ショートカット起動などの用途に使えます。</dd>
+          </div>
+          <div class="field">
+            <dt>Wi-Fiや長めのテキスト</dt>
+            <dd>容量に余裕のある NTAG215 / NTAG216 を選んでください。</dd>
+          </div>
+        </dl>
+      </section>
+
+      <h2 class="section-title">購入時の検索ワード例</h2>
+
+      <section class="card">
+        <ul class="search-list">
+          <li><code>NFCタグ NTAG213</code></li>
+          <li><code>NFCタグ シール</code></li>
+          <li><code>NFCタグ iPhone対応</code></li>
+          <li><code>NFCタグ NTAG215</code></li>
+          <li><code>NFCタグ 金属対応</code></li>
+        </ul>
+        <p style="margin-top:14px;">Amazon、楽天市場、家電量販店、NFCタグ専門店などで購入できます。</p>
+      </section>
+
+      <h2 class="section-title">金属面に貼る場合</h2>
+
+      <section class="card" aria-labelledby="metal-heading">
+        <h2 id="metal-heading">金属対応タグを選んでください</h2>
+        <p>通常のNFCシールは、金属面に貼ると読み取り・書き込みがうまく動かない場合があります。金属面に貼る場合は、<strong>「金属対応」または「On-metal」</strong>と記載されたNFCタグを選んでください。</p>
+      </section>
+
+      <h2 class="section-title">注意事項</h2>
+
+      <section class="card" aria-labelledby="notes-heading">
+        <h2 id="notes-heading">ご利用の前に</h2>
+        <ul class="caution-list">
+          <li>読み取り専用タグには書き込めません</li>
+          <li>ロック済みタグには上書きできません</li>
+          <li>すべてのNFCタグで動作を保証するものではありません</li>
+          <li>Wi-Fi接続やショートカット実行は、iOS側の仕様により確認が表示される場合があります</li>
+        </ul>
+      </section>
+
+      <p class="backlink"><a href="support.html">サポートへ戻る</a></p>
+    </main>
+  </body>
+</html>
