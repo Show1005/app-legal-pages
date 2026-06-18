@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="NFCタグセットアップで使えるショートカット起動タグの作成例を紹介します。">
+    <meta name="description" content="NFCタグセットアップで使えるショートカットのiCloud共有リンク集です。">
     <title>NFCタグセットアップ ショートカットサンプル集</title>
     <style>
       :root {
@@ -13,6 +13,7 @@
         --text: #1f2933;
         --muted: #52606d;
         --accent: #1f7a5a;
+        --accent-dark: #185f45;
         --accent-soft: #d8eee6;
         --border: #d9e2ec;
       }
@@ -112,7 +113,7 @@
 
       .field {
         display: grid;
-        grid-template-columns: minmax(112px, max-content) 1fr;
+        grid-template-columns: minmax(160px, max-content) 1fr;
         gap: 4px 16px;
         padding: 12px 0;
         border-top: 1px solid var(--border);
@@ -147,6 +148,55 @@
         color: var(--accent);
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         font-size: 0.92em;
+      }
+
+      .copy-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .copy-btn {
+        appearance: none;
+        border: 1px solid rgba(31, 122, 90, 0.24);
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.84rem;
+        font-weight: 700;
+        padding: 4px 10px;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+      }
+
+      .copy-btn:hover,
+      .copy-btn:focus-visible {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+
+      .icloud-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 14px;
+        padding: 9px 18px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(31, 122, 90, 0.25);
+        transition: background 0.15s, box-shadow 0.15s;
+      }
+
+      .icloud-btn:hover {
+        background: var(--accent-dark);
+        box-shadow: 0 4px 12px rgba(31, 122, 90, 0.35);
       }
 
       .notes ul,
@@ -190,8 +240,8 @@
       <section class="hero">
         <div class="eyebrow">ショートカットサンプル集</div>
         <h1>NFCタグセットアップ ショートカットサンプル集</h1>
-        <p class="lead">NFCタグに書き込んだショートカット起動リンクから実行できる、ショートカットのサンプル一覧です。</p>
-        <p class="lead">ショートカットアプリで同じ名前のショートカットを作成してから、NFCタグセットアップにも同じ名前を入力してください。</p>
+        <p class="lead">iCloud共有リンクからショートカットを取り込んで、NFCタグから実行できるようにするためのサンプル集です。</p>
+        <p class="lead">ショートカットアプリで同名のショートカットを用意してから、NFCタグセットアップに同じ名前を入力してください。</p>
       </section>
 
       <h2 class="section-title">使い方</h2>
@@ -199,8 +249,9 @@
       <section class="card" aria-labelledby="how-to-heading">
         <h2 id="how-to-heading">基本の流れ</h2>
         <ol class="steps">
-          <li>iPhoneのショートカットアプリで、下のサンプルと同じ名前のショートカットを作成します。</li>
+          <li>下のサンプルの「iCloud共有リンクを開く」ボタンをタップし、ショートカットアプリで取り込みます。</li>
           <li>NFCタグセットアップで「ショートカット」タグを選び、同じ名前を完全一致で入力します。</li>
+          <li>入力欄の横にある「コピー」ボタンで、ショートカット名をそのままコピーできます。</li>
           <li>NFCタグへ書き込み、iPhoneでタグをタップして動作を確認します。</li>
         </ol>
       </section>
@@ -208,113 +259,93 @@
       <h2 class="section-title">サンプル</h2>
 
       <section class="card" aria-labelledby="sample-1">
-        <h2 id="sample-1">ピヨログ 睡眠</h2>
+        <h2 id="sample-1">洗濯機完了タイマー</h2>
         <dl class="fields">
           <div class="field">
-            <dt>説明</dt>
-            <dd>睡眠記録用のNFCタグをタップして、ピヨログの睡眠ショートカットを起動します。</dd>
+            <dt>用途</dt>
+            <dd>洗濯機の完了タイマーを開始する</dd>
           </div>
           <div class="field">
             <dt>名前</dt>
-            <dd><code>ピヨログ 睡眠</code></dd>
-          </div>
-          <div class="field">
-            <dt>ショートカットURL</dt>
-            <dd><a href="https://www.icloud.com/shortcuts/ca97cabf27e6483a8edb5720e6ff62bb" target="_blank" rel="noreferrer">https://www.icloud.com/shortcuts/ca97cabf27e6483a8edb5720e6ff62bb</a></dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: 睡眠記録を開始するショートカットを実行</dd>
+            <dd class="copy-row"><code>洗濯機完了タイマー</code><button class="copy-btn" type="button" data-copy="洗濯機完了タイマー">コピー</button></dd>
           </div>
         </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/1ab727d433424ab6b29250ed5b13fb73" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <section class="card" aria-labelledby="sample-2">
-        <h2 id="sample-2">ピヨログ お風呂</h2>
+        <h2 id="sample-2">打刻</h2>
         <dl class="fields">
           <div class="field">
-            <dt>説明</dt>
-            <dd>お風呂用のNFCタグをタップして、ピヨログのお風呂ショートカットを起動します。</dd>
+            <dt>用途</dt>
+            <dd>作業開始・終了などの打刻を行う</dd>
           </div>
           <div class="field">
             <dt>名前</dt>
-            <dd><code>ピヨログ お風呂</code></dd>
-          </div>
-          <div class="field">
-            <dt>ショートカットURL</dt>
-            <dd><a href="https://www.icloud.com/shortcuts/4bf6ad923a3a4251bbdec20c868ac47d" target="_blank" rel="noreferrer">https://www.icloud.com/shortcuts/4bf6ad923a3a4251bbdec20c868ac47d</a></dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: お風呂記録を開始するショートカットを実行</dd>
+            <dd class="copy-row"><code>打刻</code><button class="copy-btn" type="button" data-copy="打刻">コピー</button></dd>
           </div>
         </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/a7896eb4724a49029ab3290d8a25de5e" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <section class="card" aria-labelledby="sample-3">
         <h2 id="sample-3">ChatGPTのボイス開始</h2>
         <dl class="fields">
           <div class="field">
-            <dt>説明</dt>
-            <dd>ChatGPTの音声会話をすぐ起動したいときに使うNFCタグ用ショートカットです。</dd>
+            <dt>用途</dt>
+            <dd>ChatGPTの音声会話を開始する</dd>
           </div>
           <div class="field">
             <dt>名前</dt>
-            <dd><code>ChatGPTのボイス開始</code></dd>
-          </div>
-          <div class="field">
-            <dt>ショートカットURL</dt>
-            <dd><a href="https://www.icloud.com/shortcuts/f41884d8162740e28d2464fef4943101" target="_blank" rel="noreferrer">https://www.icloud.com/shortcuts/f41884d8162740e28d2464fef4943101</a></dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: ChatGPTの音声会話を開始するショートカットを実行</dd>
+            <dd class="copy-row"><code>ChatGPTのボイス開始</code><button class="copy-btn" type="button" data-copy="ChatGPTのボイス開始">コピー</button></dd>
           </div>
         </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/f41884d8162740e28d2464fef4943101" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <section class="card" aria-labelledby="sample-4">
-        <h2 id="sample-4">洗濯機完了タイマー</h2>
+        <h2 id="sample-4">Google Mapsで検索</h2>
         <dl class="fields">
           <div class="field">
-            <dt>説明</dt>
-            <dd>洗濯機の完了タイミングを把握したいときに使うNFCタグ用ショートカットです。</dd>
+            <dt>用途</dt>
+            <dd>Google Mapsで場所を検索する</dd>
           </div>
           <div class="field">
             <dt>名前</dt>
-            <dd><code>洗濯機完了タイマー</code></dd>
-          </div>
-          <div class="field">
-            <dt>ショートカットURL</dt>
-            <dd><a href="https://www.icloud.com/shortcuts/1ab727d433424ab6b29250ed5b13fb73" target="_blank" rel="noreferrer">https://www.icloud.com/shortcuts/1ab727d433424ab6b29250ed5b13fb73</a></dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: 洗濯終了までのタイマーを開始</dd>
+            <dd class="copy-row"><code>Google Mapsで検索</code><button class="copy-btn" type="button" data-copy="Google Mapsで検索">コピー</button></dd>
           </div>
         </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/8afd2eb848de4a63aff0e524f970a942" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <section class="card" aria-labelledby="sample-5">
-        <h2 id="sample-5">Google Mapsで検索</h2>
+        <h2 id="sample-5">ピヨログ お風呂</h2>
         <dl class="fields">
           <div class="field">
-            <dt>説明</dt>
-            <dd>住所や場所をすぐ確認したいときに使う、Google Maps検索用のショートカットです。</dd>
+            <dt>用途</dt>
+            <dd>ピヨログにお風呂の記録を追加する</dd>
           </div>
           <div class="field">
             <dt>名前</dt>
-            <dd><code>Google Mapsで検索</code></dd>
-          </div>
-          <div class="field">
-            <dt>入力テキスト</dt>
-            <dd>検索したい地名や施設名を渡します。</dd>
-          </div>
-          <div class="field">
-            <dt>作成例</dt>
-            <dd>アクション: Google Mapsで検索を実行</dd>
+            <dd class="copy-row"><code>ピヨログ お風呂</code><button class="copy-btn" type="button" data-copy="ピヨログ お風呂">コピー</button></dd>
           </div>
         </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/4bf6ad923a3a4251bbdec20c868ac47d" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
+      </section>
+
+      <section class="card" aria-labelledby="sample-6">
+        <h2 id="sample-6">ピヨログ 睡眠</h2>
+        <dl class="fields">
+          <div class="field">
+            <dt>用途</dt>
+            <dd>ピヨログに睡眠の記録を追加する</dd>
+          </div>
+          <div class="field">
+            <dt>名前</dt>
+            <dd class="copy-row"><code>ピヨログ 睡眠</code><button class="copy-btn" type="button" data-copy="ピヨログ 睡眠">コピー</button></dd>
+          </div>
+        </dl>
+        <a class="icloud-btn" href="https://www.icloud.com/shortcuts/ca97cabf27e6483a8edb5720e6ff62bb" target="_blank" rel="noopener">iCloud共有リンクを開く</a>
       </section>
 
       <h2 class="section-title">注意事項</h2>
@@ -322,7 +353,7 @@
       <section class="card notes" aria-labelledby="notes-heading">
         <h2 id="notes-heading">ご利用の前に</h2>
         <ul>
-          <li>このページでは、iCloudショートカット共有リンクの例を掲載しています。</li>
+          <li>iCloud共有リンクは、ショートカットを取り込むためのリンクです。</li>
           <li>ショートカットアプリで同名のショートカットを作成してから、NFCタグセットアップへ設定してください。</li>
           <li>NFCタグセットアップでは、同じ名前を完全一致で入力する必要があります。</li>
           <li>ショートカットの実行時確認や動作は、iOSとショートカット側の設定に依存します。</li>
@@ -331,5 +362,33 @@
 
       <p class="backlink"><a href="../index.html">一覧ページへ戻る</a></p>
     </main>
+    <script>
+      document.querySelectorAll(".copy-btn").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const text = button.dataset.copy || "";
+          const originalLabel = button.textContent;
+
+          try {
+            await navigator.clipboard.writeText(text);
+            button.textContent = "コピー済み";
+          } catch (_) {
+            const textarea = document.createElement("textarea");
+            textarea.value = text;
+            textarea.setAttribute("readonly", "");
+            textarea.style.position = "absolute";
+            textarea.style.left = "-9999px";
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            button.textContent = "コピー済み";
+          }
+
+          window.setTimeout(() => {
+            button.textContent = originalLabel;
+          }, 1400);
+        });
+      });
+    </script>
   </body>
 </html>
