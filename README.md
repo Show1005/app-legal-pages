@@ -48,6 +48,7 @@ Some apps may also provide small web tools related to the app.
 
 ### NFCタグセットアップ
 
+- App Store: `https://apps.apple.com/jp/app/nfc%E3%82%BF%E3%82%B0%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97/id6781783708`
 - Privacy Policy: `https://show1005.github.io/app-legal-pages/nfc-setup/privacy-policy.html`
 - Support: `https://show1005.github.io/app-legal-pages/nfc-setup/support.html`
 - Shortcut Samples: `https://show1005.github.io/app-legal-pages/nfc-setup/shortcuts.html`
