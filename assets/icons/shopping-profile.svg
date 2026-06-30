@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">買い物プロフィール アイコン</title>
+  <desc id="desc">Tシャツ、メジャー、靴、サイズタグを組み合わせたアイコン</desc>
+  <defs>
+    <filter id="softShadow" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#123f38" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="green" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b6b61"/>
+      <stop offset="1" stop-color="#00463e"/>
+    </linearGradient>
+    <linearGradient id="tag" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e3c995"/>
+      <stop offset="1" stop-color="#c8a76d"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="#fff"/>
+
+  <g fill="none" stroke="url(#green)" stroke-linecap="round" stroke-linejoin="round" filter="url(#softShadow)">
+    <!-- hanger -->
+    <path d="M493 119c0-41 47-61 78-34 35 31 26 88-17 109-20 10-33 28-33 50" stroke-width="44"/>
+    <path d="M520 252 340 407 132 522l-47-93 215-166 150-66h140l150 66 215 166-47 93-208-115-180-155Z" stroke-width="44"/>
+
+    <!-- shirt outline -->
+    <path d="M320 509v140c0 29 24 53 53 53h294c29 0 53-24 53-53V509" stroke-width="44"/>
+    <path d="M452 251c29 67 107 67 136 0" stroke-width="32"/>
+  </g>
+
+  <!-- measuring tape -->
+  <g fill="none" stroke="url(#green)" stroke-linecap="round" stroke-linejoin="round" filter="url(#softShadow)">
+    <path d="M61 687c24-73 152-85 250-58 111 31 204 31 313 14 80-12 173-12 241 34" stroke-width="44"/>
+    <path d="M77 708c110 73 244 91 407 82 158-9 295-51 374-103" stroke-width="44"/>
+    <path d="M97 654c61-20 126-15 203 8" stroke-width="44"/>
+    <path d="M129 704v-38M174 719v-40M219 731v-43M265 741v-43M312 748v-42M359 751v-42M407 752v-42M455 751v-43M503 747v-43M551 741v-43M599 733v-42M647 723v-40M695 711v-39M742 697v-38" stroke-width="14"/>
+  </g>
+
+  <g fill="url(#green)" font-family="Arial, Helvetica, sans-serif" font-weight="700" filter="url(#softShadow)">
+    <text x="250" y="820" font-size="56">80</text>
+    <text x="462" y="826" font-size="56">90</text>
+    <text x="644" y="794" font-size="56">100</text>
+  </g>
+
+  <!-- sneaker -->
+  <g fill="url(#green)" filter="url(#softShadow)">
+    <path d="M543 842c47-69 108-103 184-102 42 1 74 22 102 52 22 23 49 35 86 36 29 1 47 18 51 45l5 36H505c6-25 19-47 38-67Z"/>
+    <path d="M514 926h456c13 0 24 11 24 24s-11 24-24 24H502c-13 0-24-11-24-24 0-13 11-24 24-24h12Z"/>
+  </g>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="18" filter="url(#softShadow)">
+    <path d="M716 776 666 825"/>
+    <path d="M771 790 706 850"/>
+    <path d="M816 819 756 874"/>
+  </g>
+
+  <!-- size tag -->
+  <g filter="url(#softShadow)">
+    <path d="M828 522 936 566 925 756 818 805 711 757 700 566Z" fill="url(#tag)"/>
+    <circle cx="820" cy="565" r="24" fill="#fff"/>
+    <path d="M820 565c-13-61 1-108 42-142" fill="none" stroke="url(#green)" stroke-width="24" stroke-linecap="round"/>
+    <text x="783" y="730" fill="url(#green)" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="112">M</text>
+  </g>
+</svg>
