@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping Profile | Open Shared Profile</title>
+  <meta name="robots" content="noindex">
+  <style>
+    body{margin:0;font-family:"Hiragino Sans","Yu Gothic",sans-serif;background:#f5f1e8;color:#1f2933;line-height:1.8}
+    main{max-width:860px;margin:0 auto;padding:32px 20px 56px}
+    article{background:#fffdf8;border:1px solid #d9e2ec;border-radius:22px;padding:30px 24px;box-shadow:0 14px 36px rgba(31,41,51,.08)}
+    h1{margin:0 0 10px;font-size:clamp(1.9rem,5vw,2.8rem)}h2{margin:30px 0 10px;font-size:1.25rem}.lead,.backlink{color:#52606d}a{color:#1f7a5a}li+li,p+p{margin-top:10px}
+    .status{color:#52606d;font-weight:600}
+    .open-app-button{display:none;margin-top:12px;padding:14px 22px;border-radius:14px;background:#1f7a5a;color:#fffdf8;font-weight:600;text-decoration:none}
+    .appstore-link{display:inline-block;margin-top:6px}
+    .appstore-link img{display:block}
+  </style>
+</head>
+<body>
+<main><article>
+  <p class="backlink"><a href="share.html">日本語</a></p>
+  <h1>Open Shared Profile</h1>
+  <p class="status" id="status-message">Checking the link…</p>
+  <p><a id="open-app-button" class="open-app-button" href="#">Open in App</a></p>
+
+  <h2>About "Shopping Profile"</h2>
+  <p class="lead">Shopping Profile lets you keep your own and your family's sizes, favorite brands, and preferences in one place, so you can check them right before shopping. A shared profile can be reviewed on an import confirmation screen before it is saved, and it will never overwrite your own profile.</p>
+
+  <h2>Open the app</h2>
+  <p>If Shopping Profile is installed, tapping the "Open in App" button above should open the app and show the import confirmation screen. If tapping the button doesn't open the app, get the app from the App Store below, then open this share link again.</p>
+  <p>
+    <a class="appstore-link" href="https://apps.apple.com/jp/app/%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB/id6786977208" target="_blank" rel="noopener">
+      <img src="../Download-on-the-App-Store/US/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" height="40">
+    </a>
+  </p>
+
+  <h2>About this share link</h2>
+  <p>This link contains the shared profile's content. Anyone who has the link may be able to view it, so please don't open a share link you weren't expecting.</p>
+  <p>Shared content is never sent to or stored on the developer's servers. Both this page and the app process the link's content only on your device.</p>
+
+  <h2>Privacy Policy</h2>
+  <p>Please see the <a href="privacy-policy-en.html">Privacy Policy</a>.</p>
+  <p class="backlink"><a href="../index.html">Back to the list</a></p>
+</article></main>
+<script>
+(function () {
+  "use strict";
+  var statusEl = document.getElementById("status-message");
+  var button = document.getElementById("open-app-button");
+  var hash = window.location.hash;
+
+  if (!hash || hash.length < 2) {
+    if (statusEl) {
+      statusEl.textContent = "No shared data was found in this link. Please ask for a new share link.";
+    }
+    return;
+  }
+
+  var appURL = "shoppingprofile://share" + hash;
+
+  if (button) {
+    button.href = appURL;
+    button.style.display = "inline-block";
+  }
+  if (statusEl) {
+    statusEl.textContent = "Opening the app… if nothing happens, tap \"Open in App\" above.";
+  }
+
+  // Best-effort hand-off to the app via its custom URL scheme. This stays entirely in the
+  // visitor's browser: no data is sent anywhere. Whether a failed hand-off leaves this page
+  // untouched can vary by browser/app, so the visible "Open in App" button above is the
+  // reliable way to retry — this automatic attempt is just a convenience.
+  window.location.href = appURL;
+})();
+</script>
+</body>
+</html>
