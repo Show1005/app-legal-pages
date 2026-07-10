@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Overlay Camera</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3f6ff;
+        --panel: #ffffff;
+        --text: #24303b;
+        --muted: #5b6875;
+        --accent: #2563eb;
+        --accent-soft: #dbeafe;
+        --border: #d8e1e8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        background: linear-gradient(180deg, #fbfcff 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.8;
+      }
+
+      main {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 40px 20px 56px;
+      }
+
+      .page {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: 0 14px 36px rgba(36, 48, 59, 0.08);
+        padding: 30px 24px;
+        text-align: center;
+      }
+
+      .app-icon {
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+        box-shadow: 0 8px 24px rgba(36, 48, 59, 0.14);
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(1.9rem, 5vw, 2.6rem);
+        line-height: 1.35;
+      }
+
+      p.lead {
+        color: var(--muted);
+        margin: 0 auto 24px;
+        max-width: 480px;
+      }
+
+      ol {
+        text-align: left;
+        margin: 0 auto 28px;
+        padding-left: 22px;
+        max-width: 480px;
+      }
+
+      li + li {
+        margin-top: 8px;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 18px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .chip-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .chip-secondary {
+        background: var(--accent-soft);
+        color: var(--accent);
+        border: 1px solid rgba(37, 99, 235, 0.18);
+      }
+
+      .backlink {
+        display: block;
+        margin-top: 28px;
+        color: var(--muted);
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="page">
+        <img class="app-icon" src="../assets/icons/overlay-camera.png" alt="Overlay Camera アイコン" width="96" height="96">
+        <h1>Overlay Camera</h1>
+        <p class="lead">
+          基準にしたい写真を半透明のガイドとしてカメラ画面に重ね、構図を合わせながら撮影できるiOSアプリです。
+        </p>
+
+        <ol>
+          <li>基準にしたい写真を選ぶ</li>
+          <li>半透明のガイドとして表示する</li>
+          <li>カメラで撮影する</li>
+          <li>比較スライダーで元画像と撮影画像を確認する</li>
+        </ol>
+
+        <div class="links">
+          <a class="chip chip-primary" href="support.html">サポート</a>
+          <a class="chip chip-secondary" href="privacy-policy.html">プライバシーポリシー</a>
+        </div>
+
+        <p class="backlink"><a href="../index.html">一覧ページへ戻る</a></p>
+      </article>
+    </main>
+  </body>
+</html>
