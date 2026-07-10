@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Overlay Camera | サポート</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3f6ff;
+        --panel: #ffffff;
+        --text: #23303b;
+        --muted: #5d6975;
+        --accent: #2563eb;
+        --border: #d7e0e8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+        background: linear-gradient(180deg, #fbfcff 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.8;
+      }
+
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .page {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: 0 14px 36px rgba(35, 48, 59, 0.08);
+        padding: 30px 24px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.35;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.9rem, 5vw, 2.8rem);
+      }
+
+      h2 {
+        margin: 30px 0 10px;
+        font-size: 1.25rem;
+      }
+
+      p,
+      li {
+        color: var(--text);
+      }
+
+      .lead,
+      .backlink {
+        color: var(--muted);
+      }
+
+      ul,
+      ol {
+        margin: 10px 0 0;
+        padding-left: 22px;
+      }
+
+      li + li,
+      p + p {
+        margin-top: 10px;
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="page">
+        <div class="eyebrow">Support</div>
+        <h1>Overlay Camera サポート</h1>
+        <p class="lead">
+          「Overlay Camera」は、基準にしたい写真を半透明のガイドとしてカメラ画面に重ね、構図を合わせながら撮影できるiOSアプリです。
+        </p>
+
+        <h2>基本的な使い方</h2>
+        <ol>
+          <li>基準にしたい写真を選ぶ</li>
+          <li>選んだ写真が半透明のガイドとしてカメラ画面に表示される</li>
+          <li>ガイドに合わせてカメラで撮影する</li>
+          <li>比較スライダーで元画像と撮影画像を確認する</li>
+        </ol>
+
+        <h2>FAQ</h2>
+        <ol>
+          <li>
+            保存された撮影写真にガイド画像は入りますか？
+            <p>入りません。撮影画像にガイド画像が合成されることはなく、別々のデータとして保存されます。</p>
+          </li>
+          <li>
+            写真アプリに保存されますか？
+            <p>初回版ではアプリ内保存のみです。端末の「写真」アプリへは保存されません。</p>
+          </li>
+          <li>
+            データは外部送信されますか？
+            <p>されません。本アプリはバックエンドサーバーや外部APIを持たず、すべてのデータは端末内に保存されます。</p>
+          </li>
+          <li>
+            削除するとどうなりますか？
+            <p>セッションを削除すると、そのセッションに関連する元画像・撮影画像・記録（メタデータ）が削除されます。</p>
+          </li>
+          <li>
+            アカウント登録は必要ですか？
+            <p>不要です。本アプリはアカウント作成やログインなしで利用できます。</p>
+          </li>
+          <li>
+            広告や課金はありますか？
+            <p>ありません。初回リリース時点では広告・課金機能ともに搭載していません。</p>
+          </li>
+        </ol>
+
+        <h2>お問い合わせ</h2>
+        <p>本アプリに関するお問い合わせ、不具合報告、ご要望は、以下のフォームからお願いいたします。</p>
+        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdN1mS5y-9_8NZxLXNguQIPyZ5Dk2-fAgHY6IveXnw5l_YAGg/viewform?usp=pp_url&entry.1400069445=Overlay%20Camera">お問い合わせフォーム</a></p>
+
+        <p class="backlink"><a href="../index.html">一覧ページへ戻る</a></p>
+      </article>
+    </main>
+  </body>
+</html>
