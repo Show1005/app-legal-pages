@@ -99,10 +99,10 @@
         <div class="eyebrow">Support</div>
         <h1>Voice Stream Memo Support</h1>
         <p class="lead">
-          "Voice Stream Memo" is an app where continuous voice input is converted into text memos and saved.
+          "Voice Stream Memo" is an app where voice input from iPhone or Apple Watch is converted into text memos and saved.
         </p>
 
-        <h2>Basic Usage</h2>
+        <h2>iPhone Basic Usage</h2>
         <ol>
           <li>Tap Start.</li>
           <li>Speak.</li>
@@ -110,18 +110,38 @@
           <li>Open History to view, copy, or delete saved memos.</li>
         </ol>
 
+        <h2>Apple Watch Basic Usage</h2>
+        <ol>
+          <li>Open Voice Stream Memo on Apple Watch.</li>
+          <li>Tap the text field.</li>
+          <li>Use the system dictation/text input to enter a memo.</li>
+          <li>Tap Save.</li>
+          <li>The memo is sent to the paired iPhone and appears in the iPhone app History.</li>
+        </ol>
+
         <h2>Permissions</h2>
         <ul>
-          <li>Microphone permission is required for voice input.</li>
-          <li>Speech Recognition permission is required for transcription.</li>
+          <li>On iPhone, Microphone permission is required for voice input.</li>
+          <li>On iPhone, Speech Recognition permission is required for transcription.</li>
+          <li>On Apple Watch, memo text is entered through the system dictation/text input UI provided by watchOS.</li>
         </ul>
 
-        <h2>Troubleshooting</h2>
+        <h2>iPhone Troubleshooting</h2>
         <ul>
-          <li>If transcription does not start, check the Microphone and Speech Recognition permissions for this app in iOS Settings.</li>
+          <li>If transcription does not start on iPhone, check the Microphone and Speech Recognition permissions for this app in iOS Settings.</li>
           <li>If the text is not accurate, try speaking clearly and check your device's language settings and surrounding noise.</li>
           <li>Empty recordings (no speech transcribed) are not saved to History.</li>
           <li>If a session is interrupted, a draft containing the text transcribed so far may appear as "Draft" in History, so your text is not lost.</li>
+        </ul>
+
+        <h2>Apple Watch Troubleshooting</h2>
+        <ul>
+          <li>Apple Watch use requires a paired iPhone and Apple Watch.</li>
+          <li>Delivery to iPhone may not be immediate; it depends on WatchConnectivity and system delivery.</li>
+          <li>If the memo does not appear immediately, open the iPhone app later and check History again.</li>
+          <li>The Apple Watch app does not provide continuous streaming transcription like the iPhone app.</li>
+          <li>The Apple Watch app uses system dictation/text input; accuracy depends on watchOS dictation, device language, surrounding noise, and environment.</li>
+          <li>Empty text is not saved.</li>
         </ul>
 
         <h2>Contact</h2>
