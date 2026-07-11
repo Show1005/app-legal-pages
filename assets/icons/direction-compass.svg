@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="136" height="136" viewBox="0 0 136 136" role="img" aria-label="Direction Compass icon">
+  <defs>
+    <linearGradient id="bg" x1="18" y1="10" x2="118" y2="126" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#202936"/>
+      <stop offset="1" stop-color="#647083"/>
+    </linearGradient>
+    <linearGradient id="rose" x1="28" y1="28" x2="108" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f1e7d2" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#b7a486" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="arrow" x1="52" y1="82" x2="92" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9f1f24"/>
+      <stop offset="1" stop-color="#d13b38"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#111827" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="136" height="136" rx="28" fill="url(#bg)"/>
+  <circle cx="68" cy="68" r="43" fill="none" stroke="#f3ead8" stroke-opacity="0.5" stroke-width="3"/>
+  <circle cx="68" cy="68" r="31" fill="none" stroke="#f3ead8" stroke-opacity="0.22" stroke-width="2"/>
+  <path d="M68 20 L74 60 L116 68 L74 76 L68 116 L62 76 L20 68 L62 60 Z" fill="url(#rose)" opacity="0.82"/>
+  <path d="M68 35 L72 61 L99 68 L72 75 L68 101 L64 75 L37 68 L64 61 Z" fill="#293241" opacity="0.72"/>
+  <path d="M43 88 L82 49 L72 39 L107 28 L96 63 L86 53 L47 92 Z" fill="url(#arrow)" filter="url(#shadow)"/>
+  <path d="M43 88 L82 49" stroke="#f8d0c9" stroke-width="4" stroke-linecap="round" opacity="0.72"/>
+  <path d="M104 30 C112 30 118 36 118 44 C118 54 104 70 104 70 C104 70 90 54 90 44 C90 36 96 30 104 30 Z" fill="#c12e34" stroke="#f8e5d7" stroke-width="4" filter="url(#shadow)"/>
+  <circle cx="104" cy="44" r="5" fill="#f8e5d7"/>
+</svg>
