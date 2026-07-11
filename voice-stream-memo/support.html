@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voice Stream Memo | Support</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3f6ff;
+        --panel: #ffffff;
+        --text: #23303b;
+        --muted: #5d6975;
+        --accent: #2563eb;
+        --border: #d7e0e8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: linear-gradient(180deg, #fbfcff 0%, var(--bg) 100%);
+        color: var(--text);
+        line-height: 1.8;
+      }
+
+      main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .page {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        box-shadow: 0 14px 36px rgba(35, 48, 59, 0.08);
+        padding: 30px 24px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      h1,
+      h2 {
+        line-height: 1.35;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(1.9rem, 5vw, 2.8rem);
+      }
+
+      h2 {
+        margin: 30px 0 10px;
+        font-size: 1.25rem;
+      }
+
+      p,
+      li {
+        color: var(--text);
+      }
+
+      .lead,
+      .backlink {
+        color: var(--muted);
+      }
+
+      ul,
+      ol {
+        margin: 10px 0 0;
+        padding-left: 22px;
+      }
+
+      li + li,
+      p + p {
+        margin-top: 10px;
+      }
+
+      a {
+        color: var(--accent);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="page">
+        <div class="eyebrow">Support</div>
+        <h1>Voice Stream Memo Support</h1>
+        <p class="lead">
+          "Voice Stream Memo" is an app where continuous voice input is converted into text memos and saved.
+        </p>
+
+        <h2>Basic Usage</h2>
+        <ol>
+          <li>Tap Start.</li>
+          <li>Speak.</li>
+          <li>Tap Stop.</li>
+          <li>Open History to view, copy, or delete saved memos.</li>
+        </ol>
+
+        <h2>Permissions</h2>
+        <ul>
+          <li>Microphone permission is required for voice input.</li>
+          <li>Speech Recognition permission is required for transcription.</li>
+        </ul>
+
+        <h2>Troubleshooting</h2>
+        <ul>
+          <li>If transcription does not start, check the Microphone and Speech Recognition permissions for this app in iOS Settings.</li>
+          <li>If the text is not accurate, try speaking clearly and check your device's language settings and surrounding noise.</li>
+          <li>Empty recordings (no speech transcribed) are not saved to History.</li>
+          <li>If a session is interrupted, a draft containing the text transcribed so far may appear as "Draft" in History, so your text is not lost.</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>For questions, bug reports, or feature requests about this app, please use the form below.</p>
+        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdN1mS5y-9_8NZxLXNguQIPyZ5Dk2-fAgHY6IveXnw5l_YAGg/viewform?usp=pp_url&entry.1400069445=Voice%20Stream%20Memo">Contact form</a></p>
+
+        <p class="backlink"><a href="../index.html">Back to app list</a></p>
+      </article>
+    </main>
+  </body>
+</html>
