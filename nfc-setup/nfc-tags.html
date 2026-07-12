@@ -285,8 +285,43 @@
         }
       }
     </style>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght%40400;500&amp;family=Space+Grotesk:wght%40500;700&amp;family=Zen+Kaku+Gothic+New:wght%40400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/legal-pages.css">
+    <style>
+      body.nfc-tags-page {
+        --panel: rgba(13, 21, 43, 0.92);
+        --text: #eef2ff;
+        --muted: #b2bdd8;
+        --accent: #75a7ff;
+        --accent-dark: #4f8cff;
+        --accent-soft: rgba(79, 140, 255, 0.14);
+        --border: rgba(148, 173, 224, 0.2);
+        --notice-bg: rgba(245, 158, 11, 0.08);
+        --notice-border: rgba(245, 158, 11, 0.25);
+        --notice-text: #e7c98e;
+      }
+
+      .nfc-tags-page .hero,
+      .nfc-tags-page .card {
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+      }
+
+      .nfc-tags-page .affiliate-notice {
+        background: linear-gradient(100deg, rgba(245, 158, 11, 0.09), rgba(245, 158, 11, 0.04));
+      }
+
+      .nfc-tags-page .product-image-link {
+        background: rgba(255, 255, 255, 0.92);
+      }
+    </style>
   </head>
-  <body>
+  <body class="nfc-tags-page">
+    <header class="lillip-header">
+      <a class="lillip-brand" href="../index.html"><span class="lillip-brand-icon">Li</span><span>Lillip Apps</span></a>
+      <nav class="lillip-nav" aria-label="Site navigation"><a href="../index.html">Legal</a><a href="https://show1005.github.io/lillip-apps/"><span class="lillip-apps-label">Apps </span>↗</a></nav>
+    </header>
     <main>
       <section class="hero">
         <div class="eyebrow">NFCタグガイド</div>
