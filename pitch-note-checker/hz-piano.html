@@ -158,11 +158,131 @@
     height: 100px;
   }
 </style>
-</head>
-<body>
-<div class="container">
-  <p class="backlink"><a href="support.html">音階チェッカー サポートへ戻る</a></p>
-  <h1>Hz指定ピアノ</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght%40400;500&amp;family=Space+Grotesk:wght%40500;700&amp;family=Zen+Kaku+Gothic+New:wght%40400;500;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/legal-pages.css">
+    <style>
+      body.hz-piano-page { padding: 0; }
+
+      .hz-piano-page .lillip-header {
+        width: min(1100px, calc(100% - 40px));
+      }
+
+      body.hz-piano-page > .piano-shell {
+        width: min(1100px, calc(100% - 40px));
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 52px) 0 64px;
+      }
+
+      .piano-intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 18px;
+        padding: clamp(24px, 4vw, 38px);
+        border: 1px solid var(--lillip-line);
+        border-radius: 24px;
+        background: linear-gradient(110deg, rgba(79, 140, 255, 0.16), rgba(56, 224, 200, 0.07));
+      }
+
+      .piano-intro h1 { margin-bottom: 10px; }
+      .piano-intro h1::after { display: none; }
+      .piano-intro p { margin: 0; color: var(--lillip-muted); }
+      .piano-intro .eyebrow { margin-bottom: 8px; color: var(--lillip-teal); }
+
+      .piano-intro .backlink {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      .piano-console {
+        max-width: none;
+        padding: clamp(22px, 4vw, 36px);
+        color: var(--lillip-text);
+        border: 1px solid var(--lillip-line);
+        border-radius: 24px;
+        background: var(--lillip-panel);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
+      }
+
+      .hz-piano-page .row {
+        padding: 14px;
+        border: 1px solid var(--lillip-line);
+        border-radius: 14px;
+        background: rgba(6, 10, 22, 0.42);
+      }
+
+      .hz-piano-page label { color: var(--lillip-muted); }
+      .hz-piano-page input[type="number"],
+      .hz-piano-page select,
+      .hz-piano-page button {
+        color: var(--lillip-text);
+        border-color: var(--lillip-line);
+        background: rgba(6, 10, 22, 0.82);
+      }
+
+      .hz-piano-page #playBtn {
+        color: #061119;
+        border-color: transparent;
+        background: var(--lillip-gradient);
+      }
+
+      .hz-piano-page #noteDisplay {
+        margin: 22px 0;
+        color: var(--lillip-text);
+        font-family: var(--lillip-display);
+        font-size: clamp(1.4rem, 4vw, 2rem);
+      }
+
+      .hz-piano-page .wave-canvas-wrap {
+        border-color: var(--lillip-line);
+        background: #fafaf7;
+      }
+
+      .hz-piano-page .keyboard-wrap {
+        padding: 12px;
+        border: 1px solid var(--lillip-line);
+        border-radius: 16px;
+        background: rgba(6, 10, 22, 0.5);
+      }
+
+      .hz-piano-page .hint { color: var(--lillip-muted); }
+
+      @media (max-width: 720px) {
+        .hz-piano-page .lillip-header,
+        body.hz-piano-page > .piano-shell {
+          width: min(100% - 28px, 1100px);
+        }
+
+        .piano-intro { grid-template-columns: 1fr; align-items: start; }
+        .hz-piano-page .row { align-items: stretch; }
+        .hz-piano-page .row label { width: 100%; }
+        .hz-piano-page #freqInput { width: 110px; }
+        .hz-piano-page #freqSlider { order: 4; flex-basis: 100%; }
+        .hz-piano-page #playBtn { flex: 1; }
+      }
+    </style>
+  </head>
+<body class="hz-piano-page">
+    <header class="lillip-header">
+      <a class="lillip-brand" href="../index.html"><span class="lillip-brand-icon">Li</span><span>Lillip Apps</span></a>
+      <nav class="lillip-nav" aria-label="Site navigation"><a href="../index.html">Legal</a><a href="https://show1005.github.io/lillip-apps/"><span class="lillip-apps-label">Apps </span>↗</a></nav>
+    </header>
+<main class="piano-shell">
+  <section class="piano-intro">
+    <div>
+      <p class="eyebrow">Audio Tool / Oscillator</p>
+      <h1>Hz指定ピアノ</h1>
+      <p>周波数と波形を指定して音を鳴らし、音名と鍵盤位置を確認できます。</p>
+    </div>
+    <p class="backlink"><a href="support.html">音階チェッカー サポートへ戻る</a></p>
+  </section>
+
+  <section class="piano-console" aria-label="Hz指定ピアノ操作パネル">
 
   <div class="row">
     <label>周波数 (Hz)</label>
@@ -197,7 +317,8 @@
     <button id="scrollRight" class="icon-btn">▶</button>
   </div>
   <div class="hint">鍵盤を押し続けると音が鳴ります。矢印ボタンで鍵盤をスライドできます(C2〜C6)。音階チェッカーの確認用テスト音として利用できます。</div>
-</div>
+  </section>
+</main>
 
 <script>
 (function(){
