@@ -21,7 +21,7 @@
       }
 
       if (target && target !== window.location.pathname.split("/").pop()) {
-        window.location.href = target;
+        window.location.href = target + window.location.hash;
       }
     });
   });
