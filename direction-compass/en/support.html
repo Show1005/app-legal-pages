@@ -23,52 +23,72 @@
         <h1>Direction Compass Support</h1>
         <p class="lead">"Direction Compass" is an iOS app that uses your current location and device heading to show only the direction toward a destination or selected compass direction with an arrow. It does not provide maps, route guidance, or navigation.</p>
 
-        <h2>What You Can Do</h2>
-        <ul>
-          <li>Set one destination and show its direction with an arrow</li>
-          <li>Calculate the direction to a destination from your current location and device heading</li>
-          <li>Show north, east, south, and west</li>
-          <li>Show the lucky direction for each year</li>
-        </ul>
-
         <h2>Basic Usage</h2>
         <ol>
-          <li>Enter a destination name, latitude, and longitude in Settings.</li>
-          <li>Check the arrow direction on the main screen.</li>
-          <li>North, east, south, west, and lucky direction modes can be used even without a destination.</li>
+          <li>Open the destination picker on the main screen.</li>
+          <li>Type a place name or address.</li>
+          <li>Choose a destination from the search suggestions or search results (powered by Apple's built-in MapKit).</li>
+          <li>Check the arrow and distance on the main screen.</li>
+          <li>Save places you use often.</li>
+          <li>Give a saved place a custom display name if you like.</li>
+          <li>Pick a place again from "Recently Used".</li>
+          <li>Swipe a row in "Recently Used" to remove it individually.</li>
+          <li>Saved places and the currently selected destination are not removed when you clear a recent-use entry.</li>
         </ol>
+
+        <h2>Special Directions</h2>
+        <p>Even without setting a destination, you can choose from 20 special directions, including the app's entertainment-only "Daily Direction".</p>
+        <ul>
+          <li><strong>Today</strong>: Daily Direction (one per day, for entertainment only)</li>
+          <li><strong>Season / Sky</strong>: Sun / Moon / Sunrise / Sunset</li>
+          <li><strong>Calendar</strong>: Eho (the year's lucky direction), and other year-based directions</li>
+          <li><strong>Culture</strong>: North-pillow, kimon, and others</li>
+          <li><strong>Faith</strong>: Qibla, Jerusalem, and others</li>
+        </ul>
+        <p>Tap the <code>info.circle</code> button next to any special direction to see its purpose, how it's determined, denominational/sectarian or regional differences, notes, and sources.</p>
 
         <h2>Notes</h2>
         <ul>
           <li>Heading may be unstable indoors or in places with strong magnetic interference.</li>
-          <li>This app does not provide maps, route guidance, or navigation.</li>
-          <li>If location permission is not allowed, the app cannot calculate the direction to a destination.</li>
-          <li>North, east, south, west, and lucky direction modes use the device heading.</li>
+          <li>This app does not provide maps, route guidance, or turn-by-turn navigation.</li>
+          <li>Eho, north-pillow, kimon, and "Daily Direction" can be used without granting location permission.</li>
+          <li>Destination, sun, moon, sunrise, sunset, qibla, and similar directions need your current location.</li>
         </ul>
 
         <h2>FAQ</h2>
         <ol>
           <li>
-            The direction to my destination is not shown.
-            <p>Please check that location access is allowed in the Settings app and that the destination latitude and longitude are entered correctly.</p>
+            I can't find my destination.
+            <p>Try a shorter place name or address. You usually don't need to change full-width/half-width characters or hyphen style. If there are multiple candidates, check the address and distance shown. Search results depend on Apple's built-in MapKit; there is no map display.</p>
           </li>
           <li>
-            The arrow direction seems incorrect.
-            <p>Device heading can become unstable indoors or in places with strong magnetic interference. Please try again outdoors with a clear view.</p>
+            The arrow direction seems unstable.
+            <p>Nearby magnetic interference or sensor accuracy can make the arrow unstable. Moving your device in a figure-eight outdoors may help. Indoors, heading can drift further off.</p>
           </li>
           <li>
-            Can I use the app without setting a destination?
-            <p>Yes. North, east, south, west, and lucky direction modes can be used with only the device heading.</p>
+            I don't want to allow location access.
+            <p>Special directions such as eho, north-pillow, kimon, and "Daily Direction" can be used without location access. Destination, sun, moon, sunrise, sunset, and qibla-type directions need your current location.</p>
           </li>
           <li>
-            Can I check routes on a map?
-            <p>No. This app does not provide map display or route guidance. It only shows the direction to face.</p>
+            How do I remove a recently used place?
+            <p>Swipe the row left in "Recently Used" and choose "Remove from history"; a confirmation dialog appears. Saved status and the currently selected destination are not affected.</p>
+          </li>
+          <li>
+            Does it show a map or route guidance?
+            <p>No. This app does not provide map display, route guidance, or turn-by-turn navigation. It only shows the direction to face.</p>
           </li>
           <li>
             Are my destination and location data sent outside the device?
-            <p>No. Location and destination information are used only on your device and are not sent to a server.</p>
+            <p>No. Location and destination information are used only on your device and are not sent to the developer's server. Saved places are stored only on your device and are not synced via iCloud.</p>
+          </li>
+          <li>
+            What is "Daily Direction"?
+            <p>It's an entertainment-only feature unique to Direction Compass that shows one direction per day. It does not use your name, birth date, or location, and does not guarantee any effect or outcome.</p>
           </li>
         </ol>
+
+        <h2>About North-Pillow Sleeping</h2>
+        <p>In Japan, sleeping with your head to the north is sometimes avoided due to funerary customs, while some feng shui interpretations consider it favorable; it is not a prohibition across Buddhism as a whole. This app does not guarantee any health effect. See the in-app detail sheet for a fuller explanation.</p>
 
         <h2>Contact</h2>
         <p>For questions, bug reports, or feature requests about this app, please use the form below.</p>

@@ -21,29 +21,52 @@
       <article class="page">
         <div class="eyebrow">Privacy Policy</div>
         <h1>Direction Compass Privacy Policy</h1>
-        <p class="meta">Effective date: July 11, 2026</p>
+        <p class="meta">Effective date: July 11, 2026 (Last updated: July 24, 2026)</p>
         <p class="lead">This Privacy Policy explains how the iOS app "Direction Compass" handles user information.</p>
-        <p class="lead">Direction Compass shows the direction toward a destination or selected compass direction with an arrow. It does not provide maps, route guidance, or navigation.</p>
+        <p class="lead">Direction Compass shows the direction toward a destination or selected compass direction with an arrow. It does not provide maps, route guidance, or navigation. Place and address search uses Apple's built-in MapKit.</p>
 
         <h2>1. Information This App May Handle</h2>
-        <p>This app does not collect personal information. The following information entered in the app is stored only on the user's device.</p>
+        <p>This app does not collect personal information. This app may handle the following information:</p>
         <ul>
-          <li>Location information (current location)</li>
+          <li>Current location</li>
           <li>Device heading</li>
-          <li>Destination name, latitude, and longitude entered by the user</li>
+          <li>A place name or address the user types into the search field</li>
+          <li>Place name, address, and coordinates returned by Apple MapKit</li>
+          <li>A custom display name the user assigns to a saved place</li>
+          <li>Whether a place is saved, and when it was last used</li>
+          <li>An on-device random seed used for the "Daily Direction" feature</li>
+          <li>The currently selected destination or special direction type</li>
         </ul>
 
         <h2>2. Purpose of Use</h2>
-        <p>The app uses this information only to calculate the bearing from your current location to a destination and to display directions such as north, east, south, west, and the lucky direction.</p>
-        <p>Location information and device heading are used only for direction calculation and are not used for other purposes.</p>
+        <p>This information is used only for the following purposes:</p>
+        <ul>
+          <li>Calculating the bearing from your current location to a destination</li>
+          <li>Displaying the arrow and distance</li>
+          <li>Showing your saved and recently used places</li>
+          <li>Computing the "Daily Direction" on-device so it stays the same for the rest of the day</li>
+          <li>Displaying special directions such as the lucky direction (eho), north-pillow, and qibla</li>
+        </ul>
+        <p>Current location and device heading are used only for direction calculation and are not used for other purposes.</p>
 
         <h2>3. Data Storage</h2>
-        <p>Destination name, latitude, and longitude entered by the user are stored only on the user's device.</p>
-        <p>Location information and device heading are used only for direction calculation and are not stored.</p>
+        <ul>
+          <li>Destination information (place name, address, coordinates), custom display names, saved status, and last-used timestamps are stored only on the user's device.</li>
+          <li>The "Daily Direction" seed is stored only on the user's device.</li>
+          <li>Current location and device heading are used only for calculation and are not stored.</li>
+          <li>The list of search suggestions and search text history are not stored.</li>
+          <li>The daily "Daily Direction" result itself is not stored.</li>
+        </ul>
 
-        <h2>4. Data Transmission</h2>
-        <p>Location information and destination information are not sent to the developer's server or any other external server.</p>
-        <p>This information is processed only on the user's device.</p>
+        <h2>4. Data Transmission and Apple MapKit</h2>
+        <p>This app does not use its own server or any third-party search API. Place and address search uses Apple's built-in MapKit. The developer does not collect, store, or transmit search terms, search results, current location, or destination information.</p>
+        <ul>
+          <li>Location information and destination information are not sent to the developer's server or any other external server.</li>
+          <li>This app does not use its own backend.</li>
+          <li>No data is sent to third-party advertising or analytics SDKs.</li>
+          <li>This app does not sync data to iCloud or any other external service.</li>
+        </ul>
+        <p>This information is processed only on the user's device (searching a place name or address may involve a network request to Apple's MapKit service).</p>
 
         <h2>5. Third-Party Sharing</h2>
         <p>This app does not provide collected information to third parties.</p>
