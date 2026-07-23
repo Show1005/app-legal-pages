@@ -109,6 +109,29 @@
         background: rgba(56, 224, 200, 0.07);
       }
 
+      .lillip-language-switcher {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.75rem;
+      }
+
+      .lillip-language-switcher span {
+        color: var(--subtle);
+      }
+
+      .lillip-language-select {
+        min-height: 34px;
+        padding: 6px 28px 6px 10px;
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(6, 10, 22, 0.72);
+        font: inherit;
+      }
+
       .hero {
         display: grid;
         grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
@@ -299,6 +322,7 @@
         .shell { width: min(100% - 28px, 560px); }
         .site-header { padding: 16px 0; }
         .back-to-lillip span { display: none; }
+        .lillip-language-switcher span { display: none; }
         .hero { grid-template-columns: 1fr; gap: 22px; padding: 52px 0 38px; }
         .hero-copy { max-width: 34em; }
         .app-grid { grid-template-columns: 1fr; }
@@ -315,10 +339,11 @@
   <body>
     <div class="shell">
       <header class="site-header">
-        <a class="brand" href="./" aria-label="Lillip Apps Support and Legal トップ">
+        <a class="brand" href="." aria-label="Lillip Apps Support and Legal トップ">
           <img class="brand-icon" src="favicon.png" alt="" width="32" height="32">
           <span>Lillip Apps</span>
         </a>
+        <label class="lillip-language-switcher"><span>Language</span><select class="lillip-language-select" aria-label="Language" data-ja-url="index.html" data-en-url="en/index.html"><option value="ja">日本語</option><option value="en">English</option></select></label>
         <a class="back-to-lillip" href="https://show1005.github.io/lillip-apps/">
           <span>アプリ紹介へ戻る</span> <span aria-hidden="true">↗</span>
         </a>
@@ -387,7 +412,7 @@
 
           <aside class="utility">
             <p><strong>Web Tools</strong>アプリと一緒に使える補助ツールを掲載しています。</p>
-            <a href="tools/">ツール一覧を見る →</a>
+            <a href="tools">ツール一覧を見る →</a>
           </aside>
         </section>
       </main>
@@ -397,5 +422,6 @@
         <a href="https://show1005.github.io/lillip-apps/">lillip-apps ↗</a>
       </footer>
     </div>
+    <script src="assets/language-switcher.js"></script>
   </body>
 </html>
