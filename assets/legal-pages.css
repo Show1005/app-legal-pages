@@ -63,14 +63,11 @@ body::before {
 }
 
 .lillip-brand-icon {
-  display: grid;
+  display: block;
   width: 30px;
   height: 30px;
-  place-items: center;
   border-radius: 9px;
-  color: var(--lillip-ink);
-  font-size: 0.76rem;
-  background: var(--lillip-gradient);
+  object-fit: cover;
   box-shadow: 0 0 20px rgba(56, 224, 200, 0.28);
 }
 
