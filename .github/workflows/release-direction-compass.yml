@@ -1,0 +1,49 @@
+name: Add Direction Compass App Store links
+
+on:
+  push:
+    branches:
+      - release/direction-compass-app-store
+    paths:
+      - .github/workflows/release-direction-compass.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: release/direction-compass-app-store
+      - name: Add App Store links
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          replacements = [
+              (
+                  Path("index.html"),
+                  '''            <div class="app-content"><h3>Direction Compass</h3><div class="links"><a class="document-link" href="direction-compass/support.html">サポート</a><a class="document-link" href="direction-compass/privacy-policy.html">プライバシー</a></div></div>''',
+                  '''            <div class="app-content"><h3>Direction Compass</h3><div class="links"><a class="document-link" href="direction-compass/support.html">サポート</a><a class="document-link" href="direction-compass/privacy-policy.html">プライバシー</a></div><a class="appstore-link" href="https://apps.apple.com/jp/app/direction-compass/id6793981416" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a></div>'''
+              ),
+              (
+                  Path("en/index.html"),
+                  '''            <div class="app-content"><h3>Direction Compass</h3><div class="links"><a class="document-link" href="direction-compass/support.html">Support</a><a class="document-link" href="direction-compass/privacy-policy.html">Privacy</a></div></div>''',
+                  '''            <div class="app-content"><h3>Direction Compass</h3><div class="links"><a class="document-link" href="direction-compass/support.html">Support</a><a class="document-link" href="direction-compass/privacy-policy.html">Privacy</a></div><a class="appstore-link" href="https://apps.apple.com/jp/app/direction-compass/id6793981416" target="_blank" rel="noopener"><img src="../Download-on-the-App-Store/US/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" height="40"></a></div>'''
+              ),
+          ]
+
+          for path, old, new in replacements:
+              text = path.read_text()
+              if old not in text:
+                  raise SystemExit(f"Direction Compass block not found in {path}")
+              path.write_text(text.replace(old, new, 1))
+          PY
+          rm .github/workflows/release-direction-compass.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html en/index.html .github/workflows/release-direction-compass.yml
+          git commit -m "Add Direction Compass App Store links"
+          git push origin HEAD:release/direction-compass-app-store
