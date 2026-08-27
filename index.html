@@ -31,6 +31,46 @@
 
       html { scroll-behavior: smooth; }
 
+      @keyframes bg-drift {
+        0%, 100% { background-position: 80% -8%, 4% 104%; }
+        50% { background-position: 70% 4%, 14% 96%; }
+      }
+
+      @keyframes orb-float-a {
+        0%, 100% { transform: translate3d(-8%, -6%, 0) scale(1); }
+        50% { transform: translate3d(10%, 8%, 0) scale(1.15); }
+      }
+
+      @keyframes orb-float-b {
+        0%, 100% { transform: translate3d(6%, 4%, 0) scale(1.05); }
+        50% { transform: translate3d(-8%, -10%, 0) scale(0.92); }
+      }
+
+      @keyframes fade-down {
+        from { opacity: 0; transform: translateY(-16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fade-up {
+        from { opacity: 0; transform: translateY(26px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes gradient-shimmer {
+        to { background-position: -200% center; }
+      }
+
+      @keyframes bob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+      }
+
+      @keyframes scroll-cue-move {
+        0% { transform: translateY(0); opacity: 0; }
+        30% { opacity: 1; }
+        100% { transform: translateY(14px); opacity: 0; }
+      }
+
       body {
         min-height: 100vh;
         margin: 0;
@@ -41,6 +81,7 @@
           radial-gradient(ellipse 70rem 38rem at 80% -8%, rgba(79, 140, 255, 0.17), transparent 62%),
           radial-gradient(ellipse 54rem 32rem at 4% 104%, rgba(56, 224, 200, 0.09), transparent 64%),
           var(--ink);
+        animation: bg-drift 20s ease-in-out infinite;
       }
 
       body::before {
@@ -50,6 +91,63 @@
         pointer-events: none;
         opacity: 0.42;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .03 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        width: 100%;
+        height: 3px;
+        background: transparent;
+      }
+
+      .scroll-progress span {
+        display: block;
+        height: 100%;
+        width: 0%;
+        background: var(--gradient);
+        box-shadow: 0 0 12px rgba(56, 224, 200, 0.6);
+        transition: width 0.1s linear;
+      }
+
+      .orb {
+        position: fixed;
+        z-index: -1;
+        border-radius: 50%;
+        filter: blur(6px);
+        pointer-events: none;
+        will-change: transform;
+      }
+
+      .orb-a {
+        top: -12%;
+        right: -8%;
+        width: 34rem;
+        height: 34rem;
+        background: radial-gradient(circle, rgba(79, 140, 255, 0.2), transparent 70%);
+        animation: orb-float-a 24s ease-in-out infinite;
+      }
+
+      .orb-b {
+        bottom: -14%;
+        left: -10%;
+        width: 30rem;
+        height: 30rem;
+        background: radial-gradient(circle, rgba(56, 224, 200, 0.16), transparent 70%);
+        animation: orb-float-b 28s ease-in-out infinite;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .reveal.is-in {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       a { color: inherit; }
@@ -68,6 +166,7 @@
         gap: 20px;
         padding: 22px 0;
         border-bottom: 1px solid var(--line);
+        animation: fade-down 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
       }
 
       .brand {
@@ -86,6 +185,14 @@
         border-radius: 10px;
         object-fit: cover;
         box-shadow: 0 0 22px rgba(56, 224, 200, 0.3);
+        animation: bob 5s ease-in-out infinite;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .brand:hover .brand-icon,
+      .brand:focus-visible .brand-icon {
+        transform: rotate(-8deg) scale(1.1);
+        box-shadow: 0 0 28px rgba(56, 224, 200, 0.5);
       }
 
       .back-to-lillip {
@@ -99,7 +206,7 @@
         font-family: var(--mono);
         font-size: 0.75rem;
         text-decoration: none;
-        transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
 
       .back-to-lillip:hover,
@@ -107,6 +214,7 @@
         color: var(--text);
         border-color: rgba(56, 224, 200, 0.45);
         background: rgba(56, 224, 200, 0.07);
+        transform: translateY(-2px);
       }
 
       .lillip-language-switcher {
@@ -133,6 +241,7 @@
       }
 
       .hero {
+        position: relative;
         display: grid;
         grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
         gap: clamp(28px, 7vw, 88px);
@@ -147,6 +256,7 @@
         font-size: 0.72rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
+        animation: fade-up 0.7s 0.05s cubic-bezier(0.2, 0.8, 0.2, 1) both;
       }
 
       h1 {
@@ -155,22 +265,51 @@
         font-size: clamp(2.6rem, 7vw, 5.6rem);
         line-height: 0.96;
         letter-spacing: -0.045em;
+        animation: fade-up 0.8s 0.14s cubic-bezier(0.2, 0.8, 0.2, 1) both;
       }
 
       .gradient-text {
         color: transparent;
-        background: linear-gradient(100deg, #dfe9ff 8%, var(--blue) 48%, var(--teal) 88%);
+        background: linear-gradient(100deg, #dfe9ff 4%, var(--blue) 28%, var(--teal) 48%, #dfe9ff 64%, var(--blue) 84%);
+        background-size: 220% auto;
         -webkit-background-clip: text;
         background-clip: text;
+        animation: gradient-shimmer 6s linear infinite;
       }
 
       .hero-copy {
         margin: 0;
         color: var(--muted);
         font-size: 0.96rem;
+        animation: fade-up 0.8s 0.24s cubic-bezier(0.2, 0.8, 0.2, 1) both;
       }
 
       .hero-copy strong { color: var(--text); }
+
+      .scroll-cue {
+        position: absolute;
+        left: 2px;
+        bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--subtle);
+        font-family: var(--mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fade-up 0.7s 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      }
+
+      .scroll-cue::after {
+        content: "";
+        display: block;
+        width: 1px;
+        height: 22px;
+        background: linear-gradient(var(--teal), transparent);
+        animation: scroll-cue-move 1.8s ease-in-out infinite;
+      }
 
       .section-heading {
         display: flex;
@@ -200,6 +339,7 @@
       }
 
       .app-card {
+        position: relative;
         display: grid;
         grid-template-columns: 58px minmax(0, 1fr);
         gap: 16px;
@@ -209,20 +349,53 @@
         background: var(--panel);
         -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
-        transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+        transform-style: preserve-3d;
+        overflow: hidden;
+      }
+
+      .app-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.12), transparent 60%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
       }
 
       .app-card:hover {
-        transform: translateY(-2px);
         border-color: rgba(148, 173, 224, 0.3);
         background: var(--panel-hover);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
       }
+
+      .app-card:hover::before { opacity: 1; }
+
+      .app-card > * { position: relative; z-index: 1; }
+
+      .app-card.reveal:nth-child(1) { transition-delay: 0.02s; }
+      .app-card.reveal:nth-child(2) { transition-delay: 0.08s; }
+      .app-card.reveal:nth-child(3) { transition-delay: 0.14s; }
+      .app-card.reveal:nth-child(4) { transition-delay: 0.2s; }
+      .app-card.reveal:nth-child(5) { transition-delay: 0.26s; }
+      .app-card.reveal:nth-child(6) { transition-delay: 0.32s; }
+      .app-card.reveal:nth-child(7) { transition-delay: 0.38s; }
+      .app-card.reveal:nth-child(8) { transition-delay: 0.44s; }
+      .app-card.reveal:nth-child(9) { transition-delay: 0.5s; }
+      .app-card.reveal:nth-child(10) { transition-delay: 0.56s; }
 
       .app-icon {
         width: 58px;
         height: 58px;
         border-radius: 14px;
         box-shadow: 0 12px 26px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--line);
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .app-card:hover .app-icon {
+        transform: scale(1.06) rotate(-2deg);
       }
 
       .app-content { min-width: 0; }
@@ -248,6 +421,13 @@
         background: rgba(255, 255, 255, 0.94);
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
         line-height: 0;
+        transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+      }
+
+      .appstore-link:hover,
+      .appstore-link:focus-visible {
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
       }
 
       .appstore-link img {
@@ -268,16 +448,27 @@
         font-size: 0.75rem;
         font-weight: 500;
         text-decoration: none;
-        transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease, transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
       }
 
-      .document-link::after { content: "↗"; color: var(--subtle); }
+      .document-link::after {
+        content: "↗";
+        color: var(--subtle);
+        display: inline-block;
+        transition: transform 0.2s ease;
+      }
 
       .document-link:hover,
       .document-link:focus-visible {
         color: var(--text);
         border-color: rgba(79, 140, 255, 0.5);
         background: rgba(79, 140, 255, 0.08);
+        transform: translateY(-1px);
+      }
+
+      .document-link:hover::after,
+      .document-link:focus-visible::after {
+        transform: translate(2px, -2px);
       }
 
       .utility {
@@ -297,10 +488,17 @@
 
       .utility a {
         flex: 0 0 auto;
+        display: inline-block;
         color: var(--teal);
         font-family: var(--mono);
         font-size: 0.75rem;
         text-decoration: none;
+        transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .utility a:hover,
+      .utility a:focus-visible {
+        transform: translateX(4px);
       }
 
       footer {
@@ -313,6 +511,7 @@
         border-top: 1px solid var(--line);
         font-family: var(--mono);
         font-size: 0.68rem;
+        animation: fade-up 0.8s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
       }
 
       footer a { color: var(--muted); text-decoration: none; }
@@ -328,15 +527,26 @@
         .app-grid { grid-template-columns: 1fr; }
         .section-heading span { display: none; }
         .utility { align-items: flex-start; flex-direction: column; gap: 12px; }
+        .scroll-cue { display: none; }
+        .orb { width: 20rem; height: 20rem; }
       }
 
       @media (prefers-reduced-motion: reduce) {
         html { scroll-behavior: auto; }
-        *, *::before, *::after { transition-duration: 0.01ms !important; }
+        *, *::before, *::after {
+          animation: none !important;
+          transition-duration: 0.01ms !important;
+          opacity: 1 !important;
+          transform: none !important;
+        }
+        .reveal { opacity: 1; transform: none; }
       }
     </style>
   </head>
   <body>
+    <div class="scroll-progress" aria-hidden="true"><span id="scrollProgressBar"></span></div>
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
     <div class="shell">
       <header class="site-header">
         <a class="brand" href="." aria-label="Lillip Apps Support and Legal トップ">
@@ -359,58 +569,59 @@
             <strong>Lillip Appsのサポート・法務情報</strong><br>
             お使いのアプリを選び、サポート情報またはプライバシーポリシーをご確認ください。
           </p>
+          <span class="scroll-cue">Scroll</span>
         </section>
 
         <section aria-labelledby="documents-title">
-          <div class="section-heading">
+          <div class="section-heading reveal">
             <h2 id="documents-title">アプリを選ぶ</h2>
-            <span>10 APPS / SELECT A DOCUMENT</span>
+            <span><b class="stat-count" data-target="10">0</b> APPS / SELECT A DOCUMENT</span>
           </div>
 
           <div class="app-grid">
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/shomikigen-check.png" alt="" width="58" height="58">
               <div class="app-content"><h3>賞味期限チェック</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/id6767770860" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="shomikigen-check/support.html">サポート</a><a class="document-link" href="shomikigen-check/privacy-policy.html">プライバシー</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/past-question-round-counter.png" alt="" width="58" height="58">
               <div class="app-content"><h3>過去問周回カウンター</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/id6771070513" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="past-question-round-counter/support.html">サポート</a><a class="document-link" href="past-question-round-counter/privacy-policy.html">プライバシー</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/subscription-cancel-calendar.png" alt="" width="58" height="58">
               <div class="app-content"><h3>サブスク管理｜更新日・解約通知</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/id6773755281" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="subscription-cancel-calendar-ios/support/index.html">サポート</a><a class="document-link" href="subscription-cancel-calendar-ios/privacy/index.html">プライバシー</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/pitch-note-checker.png" alt="" width="58" height="58">
               <div class="app-content"><h3>音階チェッカー</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/id6779863790" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="pitch-note-checker/support.html">サポート</a><a class="document-link" href="pitch-note-checker/privacy-policy.html">プライバシー</a><a class="document-link" href="pitch-note-checker/hz-piano.html">Hz指定ピアノ</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/self-analysis-note.png" alt="" width="58" height="58">
               <div class="app-content"><h3>自己分析ノート</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/%E8%87%AA%E5%B7%B1%E5%88%86%E6%9E%90%E3%83%8E%E3%83%BC%E3%83%88-%E7%B5%8C%E6%AD%B4-%E5%BC%B7%E3%81%BF%E6%95%B4%E7%90%86/id6784313528" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="self-analysis-note/support.html">サポート</a><a class="document-link" href="self-analysis-note/privacy-policy.html">プライバシー</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/shopping-profile.png" alt="" width="58" height="58">
               <div class="app-content"><h3>買い物プロフィール</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/%E8%B2%B7%E3%81%84%E7%89%A9%E3%83%97%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB/id6786977208" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="shopping-profile/support.html">サポート</a><a class="document-link" href="shopping-profile/privacy-policy.html">プライバシー</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/overlay-camera.png" alt="" width="58" height="58">
               <div class="app-content"><h3>Overlay Camera</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%AC%E3%82%A4%E3%82%AB%E3%83%A1%E3%83%A9-%E5%86%99%E7%9C%9F%E3%82%92%E9%87%8D%E3%81%AD%E3%81%A6%E6%92%AE%E5%BD%B1/id6792025464" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="overlay-camera/support.html">サポート</a><a class="document-link" href="overlay-camera/privacy-policy.html">プライバシー</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/nfc-setup.png" alt="" width="58" height="58">
               <div class="app-content"><h3>NFCタグセットアップ</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/nfc%E3%82%BF%E3%82%B0%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97/id6781783708" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="nfc-setup/support.html">サポート</a><a class="document-link" href="nfc-setup/privacy-policy.html">プライバシー</a><a class="document-link" href="nfc-setup/shortcuts.html">サンプル集</a><a class="document-link" href="nfc-setup/nfc-tags.html">タグの選び方</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/direction-compass.png" alt="" width="58" height="58">
               <div class="app-content"><h3>Direction Compass</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/direction-compass/id6793981416" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="direction-compass/support.html">サポート</a><a class="document-link" href="direction-compass/privacy-policy.html">プライバシー</a></div></div>
             </article>
-            <article class="app-card">
+            <article class="app-card reveal">
               <img class="app-icon" src="assets/icons/voice-stream-memo.png" alt="" width="58" height="58">
               <div class="app-content"><h3>声メモ / Voice Stream Memo</h3><div class="links"><a class="appstore-link" href="https://apps.apple.com/jp/app/%E5%A3%B0%E3%83%A1%E3%83%A2-%E9%9F%B3%E5%A3%B0%E5%85%A5%E5%8A%9B%E3%82%92%E6%96%87%E5%AD%97%E3%81%A7%E4%BF%9D%E5%AD%98/id6798761073" target="_blank" rel="noopener"><img src="Download-on-the-App-Store/JP/Download_on_App_Store/Black_lockup/SVG/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg" alt="App Storeからダウンロード" height="40"></a><a class="document-link" href="voice-stream-memo/support.html">サポート</a><a class="document-link" href="voice-stream-memo/privacy-policy.html">プライバシー</a></div></div>
             </article>
           </div>
 
-          <aside class="utility">
+          <aside class="utility reveal">
             <p><strong>Web Tools</strong>アプリと一緒に使える補助ツールを掲載しています。</p>
             <a href="tools">ツール一覧を見る →</a>
           </aside>
@@ -423,5 +634,6 @@
       </footer>
     </div>
     <script src="assets/language-switcher.js"></script>
+    <script src="assets/motion.js" defer></script>
   </body>
 </html>

@@ -19,6 +19,32 @@
 
 html { scroll-behavior: smooth; }
 
+@keyframes lillip-drift {
+  0%, 100% { background-position: 82% -8%, 4% 104%, 0 0; }
+  50% { background-position: 74% 2%, 12% 96%, 0 0; }
+}
+
+@keyframes lillip-orbit {
+  0% { transform: translate3d(-6%, -4%, 0) scale(1); }
+  50% { transform: translate3d(6%, 5%, 0) scale(1.12); }
+  100% { transform: translate3d(-6%, -4%, 0) scale(1); }
+}
+
+@keyframes lillip-fade-down {
+  from { opacity: 0; transform: translateY(-14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lillip-fade-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lillip-reveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -30,6 +56,7 @@ body {
     radial-gradient(ellipse 54rem 32rem at 4% 104%, rgba(56, 224, 200, 0.09), transparent 64%),
     var(--lillip-ink);
   background-attachment: fixed;
+  animation: lillip-drift 22s ease-in-out infinite;
 }
 
 body::before {
@@ -42,6 +69,22 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .03 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+body::after {
+  content: "";
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  z-index: -1;
+  width: 46rem;
+  height: 46rem;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 140, 255, 0.16), transparent 68%);
+  filter: blur(10px);
+  animation: lillip-orbit 26s ease-in-out infinite;
+  will-change: transform;
+}
+
 .lillip-header {
   display: flex;
   align-items: center;
@@ -50,6 +93,7 @@ body::before {
   margin: 0 auto;
   padding: 18px 0;
   border-bottom: 1px solid var(--lillip-line);
+  animation: lillip-fade-down 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .lillip-brand {
@@ -69,6 +113,13 @@ body::before {
   border-radius: 9px;
   object-fit: cover;
   box-shadow: 0 0 20px rgba(56, 224, 200, 0.28);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+
+.lillip-brand:hover .lillip-brand-icon,
+.lillip-brand:focus-visible .lillip-brand-icon {
+  transform: rotate(-8deg) scale(1.08);
+  box-shadow: 0 0 26px rgba(56, 224, 200, 0.48);
 }
 
 .lillip-nav {
@@ -110,11 +161,16 @@ body::before {
   text-decoration: none;
 }
 
+.lillip-nav a {
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
 .lillip-nav a:hover,
 .lillip-nav a:focus-visible {
   color: var(--lillip-text);
   border-color: var(--lillip-line);
   background: var(--lillip-panel-soft);
+  transform: translateY(-2px);
 }
 
 body > main,
@@ -137,6 +193,7 @@ body > .wrap {
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
+  animation: lillip-fade-up 0.8s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 body > main > article,
@@ -158,6 +215,24 @@ body > main > section.card {
   border-color: var(--lillip-line);
   background: var(--lillip-panel);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+}
+
+/* Scroll-driven reveal for content blocks further down the page.
+   Progressive enhancement only: browsers without animation-timeline
+   support simply keep full opacity (see fallback rule above). */
+@supports (animation-timeline: view()) {
+  body > main > .card,
+  body > main > section.card,
+  body > main table,
+  body > main .callout,
+  body > main .notice,
+  body > main .result,
+  body > main h2 {
+    opacity: 0;
+    animation: lillip-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 25%;
+  }
 }
 
 .eyebrow {
@@ -189,6 +264,10 @@ h1 {
   letter-spacing: -0.035em;
 }
 
+@keyframes lillip-shimmer {
+  to { background-position: -200% 0; }
+}
+
 h1::after {
   content: "";
   display: block;
@@ -196,7 +275,9 @@ h1::after {
   height: 3px;
   margin-top: 18px;
   border-radius: 99px;
-  background: var(--lillip-gradient);
+  background: linear-gradient(90deg, var(--lillip-blue), var(--lillip-teal), var(--lillip-blue), var(--lillip-teal));
+  background-size: 300% 100%;
+  animation: lillip-shimmer 4s linear infinite;
 }
 
 h2 {
@@ -214,8 +295,25 @@ p, li, dd, dt, label, small { color: inherit; }
   color: var(--lillip-muted);
 }
 
-a { color: var(--lillip-teal); }
+a { color: var(--lillip-teal); transition: color 0.2s ease; }
 a:hover { color: #79f3e3; }
+
+main p a,
+main li a,
+main dd a {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease, color 0.2s ease;
+}
+
+main p a:hover,
+main li a:hover,
+main dd a:hover {
+  background-size: 100% 1px;
+}
 
 .backlink {
   margin-top: 36px;
@@ -226,6 +324,7 @@ a:hover { color: #79f3e3; }
 .backlink a {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   min-height: 36px;
   padding: 6px 12px;
   border: 1px solid var(--lillip-line);
@@ -233,6 +332,14 @@ a:hover { color: #79f3e3; }
   font-size: 0.82rem;
   text-decoration: none;
   background: var(--lillip-panel-soft);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease, background 0.25s ease;
+}
+
+.backlink a:hover,
+.backlink a:focus-visible {
+  transform: translateX(-3px);
+  border-color: rgba(56, 224, 200, 0.4);
+  background: rgba(56, 224, 200, 0.08);
 }
 
 table {
@@ -255,9 +362,16 @@ input, select, textarea, button {
 button {
   border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-button:hover { border-color: var(--lillip-teal); }
+button:hover {
+  border-color: var(--lillip-teal);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(56, 224, 200, 0.16);
+}
+
+button:active { transform: translateY(0); }
 
 code, pre {
   color: #dfe9ff;
@@ -296,5 +410,10 @@ img { max-width: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
